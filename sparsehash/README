@@ -7,3 +7,5 @@ unordered_map class, but with different performance characteristics. It's easy t
 hash_map or unordered_map by sparse_hash_map or dense_hash_map in C++ code.
 
 They also contain code to serialize and unserialize from disk.
+
+This script will auto download the source tarball if it is not already in $CWD.
