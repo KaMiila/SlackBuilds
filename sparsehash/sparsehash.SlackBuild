@@ -5,7 +5,7 @@
 # PirateLeft 2014 KaMii
 # All wrongs reserved
 #
-# I dont give a flying fuck what you do with this script, hack it, sell it, compile it,
+# I dont give a flying fuck what you do with this script.  Hack it, sell it, compile it,
 # delete it, fap to it.
 #
 # 1. Redistribution consequences:
@@ -24,7 +24,7 @@
 PRGNAM=sparsehash
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-NUMJOBS=${NUMJOBS:--j7}
+NUMJOBS=${NUMJOBS:" -j7 "}
 DOWNLOAD="https://sparsehash.googlecode.com/files/sparsehash-2.0.2.tar.gz"
 SHA1="12c7552400b3e20464b3362286653fc17366643e"
 DEPENDENCIES=""
@@ -105,6 +105,7 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
+# Time to complie this source code
 CFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
