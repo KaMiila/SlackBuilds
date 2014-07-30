@@ -1,0 +1,12 @@
+An English wordnet dictionary that will actually work with dictd.
+
+Make sure you edit your /etc/dictd/db.list file.
+
+Your db.list file should look like this:
+
+database wordnet-en
+  {
+    data /usr/share/dictd/wn.dict.dz
+    index /usr/share/dictd/wn.index
+}
+
