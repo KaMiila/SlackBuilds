@@ -2,6 +2,10 @@
 This script will automatically download all sources for you!  It will also
 automatically determine your $ARCH and download the appropriate source.
 To use a different version number, just edit the VERSION and MERS variable.
+
+****DEPENDENCIES*****
+This requires: libvdpau, nvidia-kernel
+*********************
 ###### SANTA IS WATCHING YOU ############
 
 This is the proprietary binary video driver from NVidia for the X.Org
