@@ -111,7 +111,7 @@ SRCNAM=NVIDIA-Linux-$TARGET-${VERSION}
 
 # Download and verify source
 if [ ! -e $TARINS ]; then wget $SRSINS; fi
-SUM=$( sha1sum $TARINS | cut -d' ' -f1 )
+SUM=$( md5sum $TARINS | cut -d' ' -f1 )
 if [ "curl $SRSINS-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
@@ -119,7 +119,7 @@ fi
 sleep 2
 
 if [ ! -e $TARMOD ]; then wget $SRSMOD; fi
-SUM=$( sha1sum $TARMOD | cut -d' ' -f1 )
+SUM=$( md5sum $TARMOD | cut -d' ' -f1 )
 if [ "curl $SRSMOD-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
@@ -127,7 +127,7 @@ fi
 sleep 2
 
 if [ ! -e $TARPERS ]; then wget $SRSPERS; fi
-SUM=$( sha1sum $TARPERS | cut -d' ' -f1 )
+SUM=$( md5sum $TARPERS | cut -d' ' -f1 )
 if [ "curl $SRSPERS-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
@@ -135,7 +135,7 @@ fi
 sleep 2
 
 if [ ! -e $TARSET ]; then wget $SRSSET; fi
-SUM=$( sha1sum $TARSET | cut -d' ' -f1 )
+SUM=$( md5sum $TARSET | cut -d' ' -f1 )
 if [ "curl $SRSSET-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
@@ -143,7 +143,7 @@ fi
 sleep 2
 
 if [ ! -e $TARXCON ]; then wget $SRSXCON; fi
-SUM=$( sha1sum $TARXCON | cut -d' ' -f1 )
+SUM=$( md5sum $TARXCON | cut -d' ' -f1 )
 if [ "curl $SRSXCON-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
@@ -152,7 +152,7 @@ sleep 2
 
 if [ "$ARCH" = "x86_64" ]; then
 if [ ! -e $TAR64 ]; then wget $SRSNVID64; fi
-SUM=$( sha1sum $TAR64 | cut -d' ' -f1 )
+SUM=$( md5sum $TAR64 | cut -d' ' -f1 )
 if [ "curl $SRSNVID64-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
@@ -160,7 +160,7 @@ if [ "curl $SRSNVID64-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match
 sleep 2
 else
 if [ ! -e $TAR32 ]; then wget $SRSNVID32; fi
-SUM=$( sha1sum $TAR32 | cut -d' ' -f1 )
+SUM=$( md5sum $TAR32 | cut -d' ' -f1 )
 if [ "curl $SRSNVID32-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
