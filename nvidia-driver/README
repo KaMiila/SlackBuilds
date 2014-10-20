@@ -1,3 +1,9 @@
+###### IMPORTANT NSA STUFF HERE #########
+This script will automatically download all sources for you!  It will also
+automatically determine your $ARCH and download the appropriate source.
+To use a different version number, just edit the VERSION and MERS variable.
+###### SANTA IS WATCHING YOU ############
+
 This is the proprietary binary video driver from NVidia for the X.Org
 X-server. This package does not include the kernel-module - it is a
 part of the nvidia-kernel package at SlackBuilds.org.
@@ -9,12 +15,18 @@ Several useful utilities are included: nvidia-xsettings, nvidia-smi, and
 nvidia-settings.  Please refer to the Nvidia documentation and man pages
 for details and usage.
 
+########## KaMii Note #########
+## The below is from the current maintainer of this script on Slackbuilds.org
+## Read the manpage before applying this as it seems absurd to me.
+
 For CUDA/OpenCL to work after reboot, include the following line in your
 /etc/rc.d/rc.local:
 -------------8<---------------
 # Create missing nvidia device nodes after reboot
 /usr/bin/nvidia-modprobe -c 0 -u
 ------------->8---------------
+
+########## End KaMii Note #######
 
 Since this nvidia-driver conflicts with some files of xorg, it's a bit
 complex to install/uninstall the driver.  However, installation of the
