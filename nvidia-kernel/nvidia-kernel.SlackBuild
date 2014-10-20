@@ -54,8 +54,8 @@ VERSION=${VERSION:-343.22}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
-SRSNVID64="ftp://download.nvidia.com/XFree86/Linux-x86_64/340.24/NVIDIA-Linux-x86_64-$VERSION.tar.bz2"
-SRSNVID32="ftp://download.nvidia.com/XFree86/Linux-x86/340.24/NVIDIA-Linux-$VERSION.tar.bz2"
+SRSNVID64="ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/NVIDIA-Linux-x86_64-$VERSION.tar.bz2"
+SRSNVID32="ftp://download.nvidia.com/XFree86/Linux-x86/$VERSION/NVIDIA-Linux-$VERSION.tar.bz2"
 TAR64=$( basename $SRSNVID64)
 TAR32=$( basename $SRSNVID32)
 
