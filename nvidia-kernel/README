@@ -5,6 +5,22 @@ To use a different version number, just edit the VERSION variable.
 
 If you are on a custom kernel, make sure to disable rivafb or this will
 not build.
+
+**** DEPENDENCIES ****
+Custom Kernel
+
+	This requires a custom kernel with riva disabled (even if riva is
+	enabled as a module it will not build and will give you an error).
+	You can easily rebuild the same kernel that comes with slackware,
+	just disable riva in menuconfig.
+
+	You might get away with just removing the modules manually, or trying
+	to get the script to bypass or ignore riva, yet this is not suggested.
+
+	*** While you are in there building a custom kernel, consider just
+	disabling nouveau as well, since you most likely will not need or 
+	want it. ***
+
 ###### SANTA IS WATCHING YOU ############
 
 This is the kernel-module needed by the proprietary binary nvidia driver.
