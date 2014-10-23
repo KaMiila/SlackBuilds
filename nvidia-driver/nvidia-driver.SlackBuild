@@ -57,7 +57,7 @@ PRGNAM=nvidia-driver
 VERSION=${VERSION:-343.22}
 MVERS=343
 BUILD=${BUILD:-1}
-TAG=${TAG:-_KaMII}
+TAG=${TAG:-_KaMii}
 CPROXY=${CPROXY:-no}
 
 SRSINS="ftp://download.nvidia.com/XFree86/nvidia-installer/nvidia-installer-$VERSION.tar.bz2"
@@ -65,8 +65,8 @@ SRSMOD="ftp://download.nvidia.com/XFree86/nvidia-modprobe/nvidia-modprobe-$VERSI
 SRSPERS="ftp://download.nvidia.com/XFree86/nvidia-persistenced/nvidia-persistenced-$VERSION.tar.bz2"
 SRSSET="ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-$VERSION.tar.bz2"
 SRSXCON="ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-$VERSION.tar.bz2"
-SRSNVID64="ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/NVIDIA-Linux-x86_64-$VERSION.tar.bz2"
-SRSNVID32="ftp://download.nvidia.com/XFree86/Linux-x86/$VERSION/NVIDIA-Linux-$VERSION.tar.bz2"
+SRSNVID64="ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/NVIDIA-Linux-x86_64-$VERSION.run"
+SRSNVID32="ftp://download.nvidia.com/XFree86/Linux-x86/$VERSION/NVIDIA-Linux-$VERSION.run"
 TARINS=$( basename $SRSINS)
 TARMOD=$( basename $SRSMOD)
 TARPERS=$(basename $SRSPERS)
@@ -111,49 +111,15 @@ SRCNAM=NVIDIA-Linux-$TARGET-${VERSION}
 
 # Download and verify source
 if [ ! -e $TARINS ]; then wget $SRSINS; fi
-SUM=$( md5sum $TARINS | cut -d' ' -f1 )
-if [ "curl $SRSINS-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
-  else
-	  echo "Source file verified."
-fi
-sleep 2
-
 if [ ! -e $TARMOD ]; then wget $SRSMOD; fi
-SUM=$( md5sum $TARMOD | cut -d' ' -f1 )
-if [ "curl $SRSMOD-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
-  else
-	  echo "Source file verified."
-fi
-sleep 2
-
 if [ ! -e $TARPERS ]; then wget $SRSPERS; fi
-SUM=$( md5sum $TARPERS | cut -d' ' -f1 )
-if [ "curl $SRSPERS-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
-  else
-	  echo "Source file verified."
-fi
-sleep 2
-
 if [ ! -e $TARSET ]; then wget $SRSSET; fi
-SUM=$( md5sum $TARSET | cut -d' ' -f1 )
-if [ "curl $SRSSET-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
-  else
-	  echo "Source file verified."
-fi
-sleep 2
-
 if [ ! -e $TARXCON ]; then wget $SRSXCON; fi
-SUM=$( md5sum $TARXCON | cut -d' ' -f1 )
-if [ "curl $SRSXCON-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
-  else
-	  echo "Source file verified."
-fi
-sleep 2
 
-if [ "$ARCH" = "x86_64" ]; then
+if [ "$TARGET" = "x86_64" ]; then
 if [ ! -e $TAR64 ]; then wget $SRSNVID64; fi
 SUM=$( md5sum $TAR64 | cut -d' ' -f1 )
-if [ "curl $SRSNVID64-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
+if [ "$( curl $SRSNVID64.md5 | cut -d' ' -f1 )" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
 	fi
@@ -161,7 +127,7 @@ sleep 2
 else
 if [ ! -e $TAR32 ]; then wget $SRSNVID32; fi
 SUM=$( md5sum $TAR32 | cut -d' ' -f1 )
-if [ "curl $SRSNVID32-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
+if [ "$( curl $SRSNVID32.md5 | cut -d' ' -f1 )" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
 fi
@@ -413,8 +379,8 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 # nvidia-settings application profile support
 mkdir -p $PKG/usr/share/nvidia
-install -m 755 nvidia-application-profiles-340.24-key-documentation $PKG/usr/share/nvidia/
-install -m 755 nvidia-application-profiles-340.24-rc $PKG/usr/share/nvidia/
+install -m 755 nvidia-application-profiles-$VERSION-key-documentation $PKG/usr/share/nvidia/
+install -m 755 nvidia-application-profiles-$VERSION-rc $PKG/usr/share/nvidia/
 
 mkdir -p $PKG/install
 sed "s/PKGVERSION/$VERSION/g" $CWD/slack-desc > $PKG/install/slack-desc
