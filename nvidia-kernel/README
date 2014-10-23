@@ -2,6 +2,9 @@
 This script will automatically download all sources for you!  It will also
 automatically determine your $ARCH and download the appropriate source.
 To use a different version number, just edit the VERSION variable.
+
+If you are on a custom kernel, make sure to disable rivafb or this will
+not build.
 ###### SANTA IS WATCHING YOU ############
 
 This is the kernel-module needed by the proprietary binary nvidia driver.
