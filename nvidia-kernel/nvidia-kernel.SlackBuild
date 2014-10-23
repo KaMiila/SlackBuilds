@@ -54,8 +54,8 @@ VERSION=${VERSION:-343.22}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
-SRSNVID64="ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/NVIDIA-Linux-x86_64-$VERSION.tar.bz2"
-SRSNVID32="ftp://download.nvidia.com/XFree86/Linux-x86/$VERSION/NVIDIA-Linux-$VERSION.tar.bz2"
+SRSNVID64="ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/NVIDIA-Linux-x86_64-$VERSION.run"
+SRSNVID32="ftp://download.nvidia.com/XFree86/Linux-x86/$VERSION/NVIDIA-Linux-$VERSION.run"
 TAR64=$( basename $SRSNVID64)
 TAR32=$( basename $SRSNVID32)
 
@@ -91,10 +91,10 @@ TMP=${TMP:-/tmp/SBo}
 PKG=${PKG:-$TMP/package-$PRGNAM}
 OUTPUT=${OUTPUT:-/tmp}
 
-if [ "$ARCH" = "x86_64" ]; then
+if [ "$TARGET" = "x86_64" ]; then
 if [ ! -e $TAR64 ]; then wget $SRSNVID64; fi
 SUM=$( md5sum $TAR64 | cut -d' ' -f1 )
-if [ "curl $SRSNVID64-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
+if [ "curl $SRSNVID64.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
 	fi
@@ -102,7 +102,7 @@ sleep 2
 else
 if [ ! -e $TAR32 ]; then wget $SRSNVID32; fi
 SUM=$( md5sum $TAR32 | cut -d' ' -f1 )
-if [ "curl $SRSNVID32-tar.gz.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
+if [ "curl $SRSNVID32.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
 fi
