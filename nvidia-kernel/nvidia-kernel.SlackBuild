@@ -94,15 +94,15 @@ OUTPUT=${OUTPUT:-/tmp}
 if [ "$TARGET" = "x86_64" ]; then
 if [ ! -e $TAR64 ]; then wget $SRSNVID64; fi
 SUM=$( md5sum $TAR64 | cut -d' ' -f1 )
-if [ "curl $SRSNVID64.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
+if [ "$( curl $SRSNVID64.md5 | cut -d' ' -f1 )" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
 	fi
 sleep 2
 else
 if [ ! -e $TAR32 ]; then wget $SRSNVID32; fi
-SUM=$( md5sum $TAR32 | cut -d' ' -f1 )
-if [ "curl $SRSNVID32.md5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
+SUM=$( md5sum $TAR32 | cut -d' ' -f1)
+if [ "$( curl $SRSNVID32.md5 | cut -f' ' -f1 )" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
 fi
