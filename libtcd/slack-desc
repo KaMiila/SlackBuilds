@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+      |-----handy-ruler------------------------------------------------------|
+libtcd: libtcd provides a software API for reading and writing Tide
+libtcd: Constituent Database (TCD) files.
+libtcd:
+libtcd: The TCD file format and schema are used by XTide to retrieve
+libtcd: constituent definitions (speeds, equilibrium arguments, and node
+libtcd: factors), harmonic constants, subordinate station offsets and
+libtcd: associated metadata for use in generating tide predictions.
+libtcd:
+libtcd: TCD file format and schema were originally designed by Jan Depner.
+libtcd: They are now maintained primarily by David Flater.
+libtcd: HOMEPAGE: http://www.flaterco.com/xtide/libtcd.html

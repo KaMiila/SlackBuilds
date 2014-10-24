@@ -1,0 +1,11 @@
+# ********* NOT FOR NAVIGATION ********
+#
+# *** DO NOT RELY ON THIS DATA FILE FOR DECISIONS THAT CAN RESULT IN ***
+# ***                   HARM TO ANYONE OR ANYTHING.                  ***
+#
+
+The above warning does not come from me, it comes from the developers.  Please heed their warnings, and be safe, for the NSA is always watching you.
+
+libtcd is a required dependency for XTide.  It provides a software API for reading and writing Tide Constituent Database (TCD) files.
+
+This SlackBuild will autodownload the source and check it against a md5sum hash which I provide.  If you do not trust my md5sum, then dont use this script.  The developer(s) of XTide do not provide any hash's.
