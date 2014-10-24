@@ -1,0 +1,123 @@
+#!/bin/sh
+
+# Slackware build script for qupzilla
+
+# KaMii <lacielacie@rocketmail.com>
+# All your wrongs are belong to me PirateLeft 2012-2013
+#
+# I dont give a flying fuck what you do with this script.  Hack it, sell it, compile it,
+# delete it, fap to it.
+#
+# 1. Redistribution consequences:
+#
+# YOU MUST GIVE CREDIT TO THE ORIGINAL AUTHOR OF THIS SCRIPT WITH A COPY OF THIS MESSAGE.
+# USING THIS SCRIPT IS YOUR BUSINESS.  NO ONE IS FORCING YOU TO USE IT, SO IF YOUR COMPUTER
+# BLOWS UP AND EVERYONE ON PLANET EARTH IS KILLED IN THE PROCESS, DO NOT BLAME ANYONE BUT
+# YOURSELF FOR BEING TOO STUPID TO RTFM BEFORE EXECUTING THIS SCRIPT.  I WILL STOP WRITING
+# DISCLAIMER INFORMATION NOW IN CAPITAL LETTERS BECAUSE I KNOW NO ONE EVEN READS THIS SHIT
+# ANYMORE.
+
+# HOMEPAGE="http://www.qupzilla.com/"
+
+#Variables
+
+PRGNAM=qupzilla
+DATE=$(date +%Y%m%d)
+VERSION=${VERSION:-git$DATE}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_KaMii}
+DOWNLOAD="https://github.com/QupZilla/qupzilla.git"
+DOCS="AUTHORS COPYRIGHT FAQ GPLv3 README.md CHANGELOG BUILDING"
+
+##
+## DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING ##
+##                     YOU HAVE BEEN WARNED                       ##
+##                        NSA IS WATCHING                         ##
+##
+
+# Automatically determine the architecture we're building on:
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+MARCH=$( uname -m )
+if [ -z "$ARCH" ]; then
+  case "$MARCH" in
+    i?86)    export ARCH=i486 ;;
+    armv7hl) export ARCH=$MARCH ;;
+    armv6hl) export ARCH=$MARCH ;;
+    arm*)    export ARCH=arm ;;
+    # Unless $ARCH is already set, use uname -m for all other archs:
+    *)       export ARCH=$MARCH ;;
+  esac
+fi
+
+case "$ARCH" in
+  i486)      SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+             SLKLDFLAGS=""; LIBDIRSUFFIX=""
+             ;;
+  x86_64)    SLKCFLAGS="-O2 -fPIC"
+             SLKLDFLAGS="-L/usr/lib64"; LIBDIRSUFFIX="64"
+             ;;
+  armv7hl)   SLKCFLAGS="-O2 -march=armv7-a -mfpu=vfpv3-d16"
+             SLKLDFLAGS=""; LIBDIRSUFFIX=""
+             ;;
+  armv6hl)   SLKCFLAGS="-O2 -march=armv6 -mfpu=vfp -mfloat-abi=hard"
+             SLKLDFLAGS=""; LIBDIRSUFFIX=""
+             ;;
+  *)         SLKCFLAGS="-O2"
+             SLKLDFLAGS=""; LIBDIRSUFFIX=""
+             ;;
+esac
+
+case "ARCH" in
+    arm*)    TARGET=$ARCH-slackware-linux-gnueabi ;;
+    *)       TARGET=$ARCH-slackware-linux ;;
+esac
+
+# Prepare build location
+set -e
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+rm -rf $PRGNAM-$VERSION
+
+# Clone source
+git clone $DOWNLOAD  $TMP/$PRGNAM-$VERSION || exit 1
+cd $PRGNAM-$VERSION || exit 1
+
+chown -R root:root .
+chmod -R u+w,go+r-w,a+X-s .
+find -L . \
+ \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+ -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+ -exec chmod 644 {} \;
+
+# Time to compile this source code
+
+export USE_LIBPATH="/usr/lib${LIBDIRSUFFIX}"
+qmake QMAKE_CXXFLAGS="$SLKCFLAGS"
+make
+make install INSTALL_ROOT=$PKG
+
+# Strip binaries
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+# Add documentation
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a $DOCS $PKG/usr/doc/$PRGNAM-$VERSION || true
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+chown -R root:root $PKG/usr/doc/$PRGNAM-$VERSION
+
+# Add a package description
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+# Package it up
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
