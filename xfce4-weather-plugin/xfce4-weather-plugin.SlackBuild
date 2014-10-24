@@ -26,7 +26,6 @@ DATE=$(date +%Y%m%d)
 VERSION=${VERSION:-git$DATE}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-NUMJOBS=${NUMJOBS:" -j7 "}
 DOWNLOAD="git://git.xfce.org/panel-plugins/xfce4-weather-plugin"
 DOCS="AUTHORS COPYING TODO NEWS README"
 
@@ -42,7 +41,6 @@ CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
-TARBALL=$( basename $DOWNLOAD)
 
 MARCH=$( uname -m )
 if [ -z "$ARCH" ]; then
@@ -113,7 +111,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --build=$ARCH-slackware-linux \
   || exit 1
 
-make $NUMJOBS || exit 1
+make || exit 1
 make install DESTDIR=$PKG || exit 1
 
 # Strip binaries
