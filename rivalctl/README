@@ -1,0 +1,30 @@
+This program will give minimal functionality to your SteelSeries Rival Mouse under linux.  It is written in python and is CLI only.
+
+This SlackBuild pulls from git directly.
+
+usage: rivalctl [-h] [--commit] [--reset] [--wheel-color COLOR]
+                [--wheel-style STYLE] [--logo-color COLOR]
+                [--logo-style STYLE] [--cpi1 CPI] [--cpi2 CPI]
+                [--profile PROFILE] [--polling-rate RATE]
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --commit             Save to firmware
+  --reset              Reset all options to FACTORY defaults
+  --wheel-color COLOR  any valid css color name or hex string
+  --wheel-style STYLE  LED Style [1=Steady, 2-4=Breathe Speed]
+  --logo-color COLOR   any valid css color name or hex string
+  --logo-style STYLE   LED Style [1=Steady, 2-4=Breathe Speed]
+  --cpi1 CPI           50-6500 in increments of 50 [default 800]
+  --cpi2 CPI           50-6500 in increments of 50 [default 1600]
+  --profile PROFILE    profile name or path to file
+  --polling-rate RATE  1000, 500, 250, or 125 [default=1000]
+
+**** REQUIRES ****
+# FOUND ON slackbuilds.org #
+pysetuptools
+pyudev
+pyyaml
+#FOUND AT https://github.com/KaMiila/SlackBuilds #
+webcolors
+ioctl-opt
