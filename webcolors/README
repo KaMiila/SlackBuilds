@@ -1,0 +1,3 @@
+Webcolors is a library that allows you to work with color names and values defined by the HTML and CSS specifications for use in documents on the Web.
+
+This SlackBuild will automatically download the source tarball and verify it with an md5checksum before extracting and compiling.
