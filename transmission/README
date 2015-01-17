@@ -1,0 +1,9 @@
+This will build Transmission with QT5 only.
+
+Transmission is a lightweight open source BitTorrent client, providing
+useful functionality without feature bloat. It consists of a daemon, a
+GTK+, Qt and CLI client.
+
+This will will build the daemon, cli, and qt client only.  THIS WILL NOT BUILD THE GTK CLIENT.
+This script will also auto-download and verify the source code.
+This will also install the transmission-qt.desktop file which the slackbuilds.org script fails to do.
