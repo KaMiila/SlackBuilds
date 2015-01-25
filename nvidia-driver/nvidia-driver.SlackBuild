@@ -183,6 +183,8 @@ install -m 755 libnvidia-ml.so.$VERSION $PKG/usr/lib$LIBDIRSUFFIX/
 install -m 755 libnvidia-opencl.so.$VERSION $PKG/usr/lib$LIBDIRSUFFIX/
 install -m 755 tls/libnvidia-tls.so.$VERSION $PKG/usr/lib$LIBDIRSUFFIX/tls/
 install -m 755 libOpenCL.so.1.0.0 $PKG/usr/lib$LIBDIRSUFFIX/
+install -m 755 libnvidia-gtk2.so.$VERSION $PKG/usr/lib$LIBDIRSUFFIX/
+install -m 755 libnvidia-gtk3.so.$VERSION $PKG/usr/lib$LIBDIRSUFFIX/
 
 # For 8-series GPU if libwfb.so is missing (ie older X servers).
 install -m 755 libnvidia-wfb.so.$VERSION $PKG/usr/lib$LIBDIRSUFFIX/xorg/modules/libnvidia-wfb.so.$VERSION-nvidia
