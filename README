@@ -1,42 +1,17 @@
-These are my personal SlackBuild scripts that differ from those found on
-SlackBuilds.org
+These are my personal SlackBuild scripts that differ from those found on SlackBuilds.org
 
-I am in no way affiliated with slackbuilds.org, nor are any of my scripts
-affiliated with them. Please do not ask them for help with my scripts.
-I AM SERIOUS, I AM NOT AFFILITATED WITH THEM!
+I am in no way affiliated with slackbuilds.org, nor are any of my scripts affiliated with them. Please do not ask them for help with my scripts. I AM SERIOUS, I AM NOT AFFILITATED WITH THEM!
 
-Some of these are forked and modified from existing build scripts.  The
-original author(s) will most likely not support these forked versions.
+Some of these are forked and modified from existing build scripts.  The original author(s) will most likely not support these forked versions.
 
-If you are familiar with the traditional SlackBuilds found off SlackBuilds.org,
-you will notice that my scripts are not only different, but better.  Yes, that
-is right, my scripts are better!
+If you are familiar with the traditional SlackBuilds found off SlackBuilds.org, you will notice that my scripts are not only different, but better.  Yes, that is right, my scripts are better!
 
-My scripts do not require you to download the source file, if you do not already
-have it in $CWD the script will not only download it for you, but it will verify
-the download with a MD5 or SHA1 hash.  I do not, nor do I ever plan on hosting
-other peoples source code, which is why I have my scripts auto download the
-source files if you do not have them.  Some of my scripts pull directly from git
-or svn.
+My scripts do not require you to download the source file, if you do not already have it in $CWD the script will not only download it for you, but it will verify the download with a MD5 or SHA1 hash.  I do not, nor do I ever plan on hosting other peoples source code, which is why I have my scripts auto download the source files if you do not have them.  Some of my scripts pull directly from git or svn.
 
-If you do not know how to use a SlackBuild file, please refer to the howto on
-SlackBuilds.org:
+If you do not know how to use a SlackBuild file, please refer to the howto on SlackBuilds.org:
   http://slackbuilds.org/howto
 
-USE OF THESE SCRIPTS ARE "AS IS" AND SHOULD NEVER BE USED BY ANYONE!  THIS MEANS
-YOU!  FAILURE TO READ AND UNDERSTAND ANY SCRIPT BEFORE EXECUTING MAY RESULT IN
-TOTAL GLOBAL DESTRUCTION ON AN EPIC SCALE.  SUCH EXTINCTION LEVEL EVENTS (ELE)
-CAN BE AVOIDED IF YOU TAKE THE TIME TO RTFM.  IF, AFTER EXECUTING ANY CODE FOUND
-ON THE INTERNET WHICH IS NOT YOURS, CAUSES YOUR COMPUTER TO EVOLVE INTO A NEW
-LIFE FORM WHICH DECIDES TO ELIMINATE ALL HUMANS... THE BLAME IS COMPLETELY ON
-YOUR HANDS NOT THE AUTHOR(S) OF SAID CODE.  ALL SCRIPTS WILL INCLUDE A README
-FILE. IF YOU FAIL TO READ AND COMPREHEND THIS FILE BEFORE EXECUTING THE CODE,
-YOUR COMPUTER MAY START A CASCADING EVENT WHICH WILL OPEN UP A BLACK HOLE CAUSING
-OUR ENTIRE UNIVERSE TO DISAPPER. IF YOU DOWNLOADED A SCRIPT AND HAVE NO IDEA WHAT
-IT DOES AFTER READING BOTH THE README FILE AND THE SCRIPT ITSELF, EXECUTE A DOD
-5220.22-M SECURE DELETE OF THE FILE OR A GUTNAMM METHOD SO OUR UNIVERSE WILL NOT
-SPONTANEOUSLY EXPLODE.  REMEMBER, THE NSA IS ALWAYS WATCHING YOU, EVEN WHEN YOU
-SLEEP.
+USE OF THESE SCRIPTS ARE "AS IS" AND SHOULD NEVER BE USED BY ANYONE!  THIS MEANS YOU!  FAILURE TO READ AND UNDERSTAND ANY SCRIPT BEFORE EXECUTING MAY RESULT IN TOTAL GLOBAL DESTRUCTION ON AN EPIC SCALE.  SUCH EXTINCTION LEVEL EVENTS (ELE) CAN BE AVOIDED IF YOU TAKE THE TIME TO RTFM.  IF, AFTER EXECUTING ANY CODE FOUND ON THE INTERNET WHICH IS NOT YOURS, CAUSES YOUR COMPUTER TO EVOLVE INTO A NEW LIFE FORM WHICH DECIDES TO ELIMINATE ALL HUMANS... THE BLAME IS COMPLETELY ON YOUR HANDS NOT THE AUTHOR(S) OF SAID CODE.  ALL SCRIPTS WILL INCLUDE A README FILE. IF YOU FAIL TO READ AND COMPREHEND THIS FILE BEFORE EXECUTING THE CODE, YOUR COMPUTER MAY START A CASCADING EVENT WHICH WILL OPEN UP A BLACK HOLE CAUSING OUR ENTIRE UNIVERSE TO DISAPPER. IF YOU DOWNLOADED A SCRIPT AND HAVE NO IDEA WHAT IT DOES AFTER READING BOTH THE README FILE AND THE SCRIPT ITSELF, EXECUTE A DOD 5220.22-M SECURE DELETE OF THE FILE OR A GUTNAMM METHOD SO OUR UNIVERSE WILL NOT SPONTANEOUSLY EXPLODE.  REMEMBER, THE NSA IS ALWAYS WATCHING YOU, EVEN WHEN YOU SLEEP.
 
 . . .
 
