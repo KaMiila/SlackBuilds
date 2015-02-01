@@ -38,7 +38,6 @@
 ##
 
 # Courtesy of Urchlay
-set_slackver() {
 	if [ "$SLACKVER" != "" ]; then
 		echo "Using SLACKVER=$SLACKVER from environment"
 		# user has it set in the environment, leave it as-is
@@ -54,7 +53,6 @@ set_slackver() {
 		echo "SLACKVER not set in environment, and I can't find /etc/slackware-version on this system!"
 		exit 1
 	fi
-}
 
 TMP=${TMP:-/tmp/alien}
 OUTPUT=${OUTPUT:-/tmp}
