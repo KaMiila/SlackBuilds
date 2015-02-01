@@ -1,0 +1,12 @@
+***IMPORTANT***
+YOU MUST EDIT THE alien-multilib.sh FILE BEFORE EXECUTING!
+This is especially important if you are on -current.  Since the /etc/slackware-version file points to the last stable version of slackware, this script will destroy your system if you are on -current and fail to define the SLACKVER variable to 'current' I cannot stress this enough.
+
+## DO NOT USE THIS SCRIPT ##
+Until you have read everything documented!
+
+Before entertaining the idea of executing this script READ the documentation that alienBOB has written out and understand it:  http://alien.slackbook.org/dokuwiki/doku.php?id=slackware:multilib
+
+I suggest everyone defines a SLACKVER variable, but have allowed the script to auto-guess which version of slackware you are probably running.  USE AT YOUR OWN RISK!
+
+This script needs to be run as root as it will download the files to /tmp/alien/multilib via lftp then it will auto verfiy all the files against their checksums, and finally it will install them.  If you do not want it to auto install, then comment out the last two lines.
