@@ -62,7 +62,7 @@ OUTPUT=${OUTPUT:-/tmp}
 # Sanity Check: Test if the script runs as root
 
 if [ "$(whoami)" != root ] ; then
-    echo -e "\nPlease run this script as root!\n" >&amp;2
+    echo -e "\nPlease run this script as root!\n" >&2
     exit 1
 fi
 
@@ -76,7 +76,7 @@ tail +13 CHECKSUMS.md5 | md5sum --check
 # Thank you Urchlay for helping me with this.
 if [ "$?" != "0" ]; 
           then echo "Checksum does not match... aborting."; exit 1;
-	  else
+else
 	  echo "Source files verified."
 fi
 
