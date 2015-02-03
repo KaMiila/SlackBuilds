@@ -1,0 +1,9 @@
+So far this requires pulseaudio.  I am trying to figure out a way to get this to build without pulse.
+
+#### IT'S A TRAP ####
+ THIS PULLS FROM GIT
+####    #####    ####
+
+This requires qt5 version 5.3 to build.  QTWebEngine is very much beta.  If you don't like bugs, do not use this!
+
+NSA beta is watching you!
