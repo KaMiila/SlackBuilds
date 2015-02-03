@@ -4,6 +4,21 @@ So far this requires pulseaudio.  I am trying to figure out a way to get this to
  THIS PULLS FROM GIT
 ####    #####    ####
 
+YOU MIGHT NEED:
+Since we all use and love python 2.7, this wants us to be using python 2.6.  If you get this error:
+
+gyp: Call to '../3rdparty/chromium/build/linux/python_arch.sh /usr/lib/libpython2.6.so.1.0' returned exit status 1. while trying to load src/core/core.gyp
+Project ERROR: -- running gyp_qtwebengine failed --
+
+then add this to your ~/.gyp/include.gypi
+	which will be root, and this file probably does not exist so you will need to create it.
+
+{
+ 'variables': {
+  'python_ver': '2.7'
+ }
+}
+
 This requires qt5 version 5.3 to build.  QTWebEngine is very much beta.  If you don't like bugs, do not use this!
 
-NSA beta is watching you!
+☭NSA☭ beta is watching you!
