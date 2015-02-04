@@ -150,7 +150,7 @@ cd $TMP/$PRGNAM-$VERSION/qt
   qmake-qt5 \
     QMAKE_CXXFLAGS+="$SLKCFLAGS" \
     QMAKE_CFLAGS+="$SLKCFLAGS" \
-#    qtr.pro
+    qtr.pro
   sed -i -e 's% -g % %g' Makefile
   make
   INSTALL_ROOT=$PKG/usr make install
