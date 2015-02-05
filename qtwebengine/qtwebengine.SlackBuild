@@ -102,6 +102,7 @@ find -L . \
 
 export USE_LIBPATH="/usr/lib${LIBDIRSUFFIX}"
 qmake-qt5 QMAKE_CXXFLAGS="$SLKCFLAGS"
+# sed command courtesy of: http://www.linuxfromscratch.org/~krejzi/kblfs/x/qt5.html
 sed -e "$ a !contains(QT_CONFIG, pulseaudio): GYP_CONFIG += use_pulseaudio=0" \
 	-i src/core/config/desktop_linux.pri
 make
