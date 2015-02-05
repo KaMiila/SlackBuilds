@@ -1,4 +1,4 @@
-So far this requires pulseaudio.  I am trying to figure out a way to get this to build without pulse.
+QTWebEngine wants to force pulseaudio as a dependency, but this script will build it without pulseaudio.
 
 #### IT'S A TRAP ####
  THIS PULLS FROM GIT

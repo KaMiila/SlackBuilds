@@ -102,6 +102,8 @@ find -L . \
 
 export USE_LIBPATH="/usr/lib${LIBDIRSUFFIX}"
 qmake-qt5 QMAKE_CXXFLAGS="$SLKCFLAGS"
+sed -e "$ a !contains(QT_CONFIG, pulseaudio): GYP_CONFIG += use_pulseaudio=0" \
+	-i src/core/config/desktop_linux.pri
 make
 make install INSTALL_ROOT=$PKG
 
