@@ -85,7 +85,7 @@ cd $TMP
 rm -rf $PRGNAM-$VERSION
 
 # Clone source
-git clone $DOWNLOAD  $TMP/$PRGNAM-$VERSION || exit 1
+git clone -b 5.4.0 $DOWNLOAD  $TMP/$PRGNAM-$VERSION || exit 1
 cd $PRGNAM-$VERSION || exit 1
 git submodule init || exit 1
 git submodule update || exit 1
