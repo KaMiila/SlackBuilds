@@ -27,4 +27,8 @@ You might have to upgrade sqlite to 3.8.8.2
 You might have to upgrade PCRE to 8.36
 Do these upgrades before compiling qt5!
 
+#### IMPORTANT NOTE ####
+MOUSE CLICK NAVIGATION IS NOT YET IMPLEMENTED
+keep an eye on upstream to see when this happens.
+
 ☭NSA☭ beta is watching you!
