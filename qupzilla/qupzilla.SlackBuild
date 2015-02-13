@@ -88,6 +88,8 @@ rm -rf $PRGNAM-$VERSION
 git clone $DOWNLOAD  $TMP/$PRGNAM-$VERSION || exit 1
 cd $PRGNAM-$VERSION || exit 1
 
+patch -p0 < $CWD/qzcommon.patch
+
 chown -R root:root .
 chmod -R u+w,go+r-w,a+X-s .
 find -L . \
@@ -99,7 +101,8 @@ find -L . \
 # Time to compile this source code
 
 export USE_LIBPATH="/usr/lib${LIBDIRSUFFIX}"
-qmake QMAKE_CXXFLAGS="$SLKCFLAGS"
+
+qmake-qt5 QMAKE_CXXFLAGS="$SLKCFLAGS"
 make
 make install INSTALL_ROOT=$PKG
 
