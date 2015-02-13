@@ -22,12 +22,13 @@
 #Variables
 # I am not using capitals in the package name!
 PRGNAM=qtwebengine
-DATE=$(date +%Y%m%d)
-VERSION=${VERSION:-git$DATE}
+TARNAM=qt5
+VERSION=${VERSION:-5.4.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="https://github.com/qtproject/qtwebengine.git"
-DOCS="AUTHORS COPYRIGHT FAQ GPLv3 README.md CHANGELOG BUILDING"
+DOWNLOAD="http://download.qt-project.org/official_releases/qt/5.4/5.4.0/single/qt-everywhere-opensource-src-5.4.0.tar.xz"
+MD5SUM="21843b00ecde8956217faab391bc007b"
+DOCS="LICENSE.LGPLv3"
 
 ##
 ## DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING ##
@@ -41,6 +42,7 @@ CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
+TARBALL=$( basename $DOWNLOAD)
 
 MARCH=$( uname -m )
 if [ -z "$ARCH" ]; then
@@ -77,18 +79,25 @@ case "ARCH" in
     *)       TARGET=$ARCH-slackware-linux ;;
 esac
 
+# Download and verify source
+if [ ! -e $TARBALL ]; then wget $DOWNLOAD; fi
+SUM=$( md5sum $TARBALL | cut -d' ' -f1 )
+if [ "$MD5SUM" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
+  else
+	  echo "Source file verified."
+fi
+sleep 2
+
 # Prepare build location
 set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
+rm -rf ${TARNAM/5/}-everywhere-opensource-src-$VERSION
 
-# Clone source
-git clone -b 5.4.0 $DOWNLOAD  $TMP/$PRGNAM-$VERSION || exit 1
-cd $PRGNAM-$VERSION || exit 1
-git submodule init || exit 1
-git submodule update || exit 1
+# Untar Source
+tar xvf $CWD/${TARNAM/5/}-everywhere-opensource-src-$VERSION.tar.xz || exit 1
+cd ${TARNAM/5/}-everywhere-opensource-src-$VERSION/qtwebengine || exit 1
 
 chown -R root:root .
 chmod -R u+w,go+r-w,a+X-s .
@@ -101,7 +110,7 @@ find -L . \
 # Time to compile this source code
 
 export USE_LIBPATH="/usr/lib${LIBDIRSUFFIX}"
-qmake-qt5 QMAKE_CXXFLAGS="$SLKCFLAGS"
+qmake-qt5 QMAKE_CXXFLAGS="$SLKCFLAGS" GYP_CONFIG+="disable_fatal_linker_warnings=1"
 # sed command courtesy of: http://www.linuxfromscratch.org/~krejzi/kblfs/x/qt5.html
 sed -e "$ a !contains(QT_CONFIG, pulseaudio): GYP_CONFIG += use_pulseaudio=0" \
 	-i src/core/config/desktop_linux.pri

@@ -1,8 +1,10 @@
 QTWebEngine wants to force pulseaudio as a dependency, but this script will build it without pulseaudio.
 
-#### IT'S A TRAP ####
- THIS PULLS FROM GIT
-####    #####    ####
+re2c is an option dependency which can be found here: http://slackbuilds.org/
+
+warning: A compatible version of re2c (>= 0.11.3) was not found; changes to src/*.in.cc will not affect your build.
+
+This uses the same tarball that the qt5 slackbuild uses.  My advise is to first build the qt5 slackbuild, then compile QTWebEnine.  I cannot figure out a way to force the GYP_CONFIG+="disable_fatal_linker_warnings=1" in the qt5 build since it uses configure and not qmake.  Perhaps a simple sed-line is required to add this in the proper file/location?
 
 YOU MIGHT NEED:
 Since we all use and love python 2.7, this wants us to be using python 2.6.  If you get this error:
@@ -19,6 +21,10 @@ then add this to your ~/.gyp/include.gypi
  }
 }
 
-This requires qt5 version 5.3 to build.  QTWebEngine is very much beta.  If you don't like bugs, do not use this!
+This requires qt5 version 5.4.0 to build.  QTWebEngine is very much beta.  If you don't like bugs, do not use this!
+
+You might have to upgrade sqlite to 3.8.8.2
+You might have to upgrade PCRE to 8.36
+Do these upgrades before compiling qt5!
 
 ☭NSA☭ beta is watching you!
