@@ -15,6 +15,9 @@ This pulls directly from git!
 
 
 
+IF YOU HAD AN EARLIER VERSION OF QUPZILLA
+remove or rename the old qtwebkit profile it will conflict.
+~/.config/qupzilla
 
 
 
