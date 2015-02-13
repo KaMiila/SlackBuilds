@@ -2,6 +2,10 @@
  THIS PULLS FROM GIT
 ####    #####    ####
 
+REQUIRED DEPENDENCIES
+qt5  #found on slackbuilds.org
+QTWebEngine  #found in my repo
+
 QupZilla is a lightweight cross-platform web browser,
 based on WebKit and Qt.
 This pulls directly from git!
