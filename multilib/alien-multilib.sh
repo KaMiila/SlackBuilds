@@ -41,7 +41,6 @@
 	if [ "$SLACKVER" != "" ]; then
 		echo "Using SLACKVER=$SLACKVER from environment"
 		# user has it set in the environment, leave it as-is
-		return
 	elif [ -f /etc/slackware-version ]; then
 		set $( cat /etc/slackware-version )
 		if [ "$1" != "Slackware" ]; then
