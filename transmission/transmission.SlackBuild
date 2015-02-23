@@ -122,7 +122,7 @@ sed -i "s|share/man/|man/|" qt/qtr.pro
 
 # Needed when using Qt4
 # https://trac.transmissionbt.com/ticket/5700#comment:2
-# echo "QMAKE_CXXFLAGS += -std=c++11" >> qt/qtr.pro
+ echo "QMAKE_CXXFLAGS += -std=c++11" >> qt/qtr.pro
 
 # Thanks Larry Hajali
 autoreconf -ivf
@@ -147,7 +147,7 @@ make install DESTDIR=$PKG
 
 # build the Qt client (transmission-qt)
 cd $TMP/$PRGNAM-$VERSION/qt
-  qmake-qt5 \
+  qmake \
     QMAKE_CXXFLAGS+="$SLKCFLAGS" \
     QMAKE_CFLAGS+="$SLKCFLAGS" \
     qtr.pro

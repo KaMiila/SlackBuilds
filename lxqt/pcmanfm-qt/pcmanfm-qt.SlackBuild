@@ -121,7 +121,7 @@ cd build
     -DMAN_INSTALL_DIR=/usr/man \
     -DSYSCONF_INSTALL_DIR=/etc \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
-    -DUSE_QT5=ON
+    -DUSE_QT5=ON \
     ..
 make || exit 1
 make install DESTDIR=$PKG || exit 1
