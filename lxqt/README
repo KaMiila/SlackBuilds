@@ -1,0 +1,12 @@
+This is a complete lxqt set of SlackBuilds.
+
+As always my build scripts will automatically download the source code and verify them with an md5sum or sha1sum.
+
+This does not pull from git, so it should be as stable as verion 0.9.0 is.
+
+#########  DISCLAIMER  #########
+There is a bug with QT5 verion 5.4.0!
+This bug is suppose to disapper with 5.4.1 but it has not been released yet!
+
+## DEPENDENCIES ##
+This requires QT5

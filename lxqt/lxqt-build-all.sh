@@ -31,7 +31,6 @@ INST=1
 TMP=${TMP:-/tmp}
 
 for package in \
-# Buld the base libraries	
   libqtxdg \
   liblxqt \
   liblxqt-mount \
@@ -40,7 +39,6 @@ for package in \
   libsysstat \
   menu-cache \
   libfm \
-# Build major components
   lxqt-panel \
   pcmanfm-qt \
   lxqt-session \
@@ -53,10 +51,8 @@ for package in \
   obconf-qt \
   compton-conf \
   lxqt-about \
-# Build data files
   lxqt-common \
   lxmenu-data \
-# Build extras
   lxqt-openssh-askpass \
   qterminal \
   qtermwidget \
