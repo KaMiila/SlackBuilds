@@ -65,8 +65,8 @@ DATA="\
 
 EXTRAS="\
   lxqt-openssh-askpass \
-  qterminal \
   qtermwidget \
+  qterminal \
 "
 
 for package in $BASELIBS $COMPONENTS $DATA $EXTRAS; do
