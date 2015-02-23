@@ -147,7 +147,7 @@ make install DESTDIR=$PKG
 
 # build the Qt client (transmission-qt)
 cd $TMP/$PRGNAM-$VERSION/qt
-  qmake \
+  qmake-qt5 \
     QMAKE_CXXFLAGS+="$SLKCFLAGS" \
     QMAKE_CFLAGS+="$SLKCFLAGS" \
     qtr.pro
