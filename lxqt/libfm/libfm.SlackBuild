@@ -118,6 +118,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --localstatedir=/var \
   --mandir=/usr/man \
   --without-gtk \
+  --with-extra-only \
   --sysconfdir=/etc
 make || exit 1
 make install DESTDIR=$PKG || exit 1
@@ -146,7 +147,6 @@ mv $PKG/etc/xdg/libfm/libfm.conf $PKG/etc/xdg/libfm/libfm.conf.new
 # Add a package description:
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 # Package it up
 cd $PKG
