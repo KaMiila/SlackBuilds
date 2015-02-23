@@ -30,7 +30,7 @@ INST=1
 
 TMP=${TMP:-/tmp}
 
-for package in \
+BASELIBS="\
   libqtxdg \
   liblxqt \
   liblxqt-mount \
@@ -39,6 +39,9 @@ for package in \
   libsysstat \
   menu-cache \
   libfm \
+"
+
+COMPONENTS="\
   lxqt-panel \
   pcmanfm-qt \
   lxqt-session \
@@ -51,12 +54,20 @@ for package in \
   obconf-qt \
   compton-conf \
   lxqt-about \
+"
+
+DATA="\
   lxqt-common \
   lxmenu-data \
+"
+
+EXTRAS="\
   lxqt-openssh-askpass \
   qterminal \
   qtermwidget \
-  ; do
+"
+
+for package in $BASELIBS $COMPONENTS $DATA $EXTRAS; do
   cd $package || exit 1
   ./${package}.SlackBuild || ( touch /tmp/${package}.failed ; exit 1 ) || exit 1
   if [ "$INST" = "1" ]; then
