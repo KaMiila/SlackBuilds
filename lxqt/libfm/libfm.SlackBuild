@@ -118,8 +118,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --localstatedir=/var \
   --mandir=/usr/man \
   --without-gtk \
-  --with-extra-only \
-  --sysconfdir=/etc
+  --with-extra-only
 make || exit 1
 make install DESTDIR=$PKG || exit 1
 ldconfig
@@ -140,9 +139,6 @@ if [ -d $PKG/usr/man ]; then
   find $PKG/usr/man -type f -name "*.?" -exec gzip -9f {} \;
   for i in $(find $PKG/usr/man -type l -name "*.?") ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 fi
-
-# Add a .new suffix so we don't mangle an existing file:
-mv $PKG/etc/xdg/libfm/libfm.conf $PKG/etc/xdg/libfm/libfm.conf.new
 
 # Add a package description:
 mkdir -p $PKG/install
