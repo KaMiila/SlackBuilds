@@ -76,7 +76,7 @@ for package in $BASELIBS $COMPONENTS $DATA $EXTRAS; do
     if [ -f $PACKAGE ]; then
       upgradepkg --install-new --reinstall $PACKAGE
     else
-      echo "Error:  package to upgrade "$PACKAGE" not found in $TMP"
+      echo "Error:  package to upgrade "$PACKAGE" not found in $OUTPUT"
       exit 1
     fi
   fi
