@@ -10,3 +10,4 @@ This bug is suppose to disapper with 5.4.1 but it has not been released yet!
 
 ## DEPENDENCIES ##
 This requires QT5
+KWindowSystem
