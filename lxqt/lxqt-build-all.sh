@@ -38,6 +38,7 @@ BASELIBS="\
   lxqt-globalkeys \
   lxqt-notificationd \
   libsysstat \
+  libfm-extra \
   menu-cache \
   libfm \
 "
