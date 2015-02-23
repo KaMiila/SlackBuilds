@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Slackware build script for libfm
+# Slackware build script for libfm-extra
 #
 # PirateLeft 2014 KaMii
 # All wrongs reserved
@@ -21,7 +21,7 @@
 
 #Variables
 
-PRGNAM=libfm
+PRGNAM=libfm-extra
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
 DOWNLOAD="http://downloads.sourceforge.net/pcmanfm/libfm-1.2.3.tar.xz"
