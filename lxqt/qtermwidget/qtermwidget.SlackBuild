@@ -120,6 +120,7 @@ cd build
     -DMAN_INSTALL_DIR=/usr/man \
     -DSYSCONF_INSTALL_DIR=/etc \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
+    -DBUILD_DESIGNER_PLUGIN=0 \
     -DUSE_QT5=true \
     ..
 make || exit 1
