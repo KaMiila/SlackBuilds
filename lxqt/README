@@ -9,7 +9,9 @@ There is a bug with QT5 verion 5.4.0!
 This bug is suppose to disapper with 5.4.1 but it has not been released yet!
 
 ## DEPENDENCIES ##
-This requires QT5
+## Dependencies found on http://slackbuilds.org/
+QT5
+libconf
 ## Dependencies found from alienBOB http://alien.slackbook.org/slackware/ktown/
 KWindowSystem
 KGuiAddons
