@@ -29,6 +29,7 @@
 INST=1
 
 TMP=${TMP:-/tmp}
+OUTPUT=${OUTPUT:-/tmp}
 
 BASELIBS="\
   libqtxdg \
@@ -71,7 +72,7 @@ for package in $BASELIBS $COMPONENTS $DATA $EXTRAS; do
   cd $package || exit 1
   ./${package}.SlackBuild || ( touch /tmp/${package}.failed ; exit 1 ) || exit 1
   if [ "$INST" = "1" ]; then
-    PACKAGE="$(ls -t $TMP/$(ls ${package}*.xz | rev | cut -f2- -d - | rev)-*txz | head -n 1)"
+    PACKAGE="$(ls -t $OUTPUT/$(ls ${package}*.?z | rev | cut -f2- -d - | rev)-*t?z | head -n 1)"
     if [ -f $PACKAGE ]; then
       upgradepkg --install-new --reinstall $PACKAGE
     else
