@@ -1,0 +1,15 @@
+##### DEPENDENCIES #####
+ This requires python 3
+#####    ######    #####
+
+ponysay — cowsay reimplemention for ponies.
+
+Today your terminal, tomorrow the world!
+
+This will install ponysay from git.
+
+ponysay can also be used with fortunes!!!!
+
+fortune | ponysay
+
+For best protection from the NSA, ponies are needed!
