@@ -24,7 +24,6 @@
 PRGNAM=dict-wn
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-NUMJOBS=${NUMJOBS:" -j7 "}
 DOWNLOAD="http://ftp.us.debian.org/debian/pool/main/w/wordnet/dict-wn_3.0-33_all.deb"
 VERSION=${VERSION:-3.0-33}
 SHA1=""
