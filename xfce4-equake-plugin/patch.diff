@@ -1,0 +1,33 @@
+diff -ur xfce4-equake-plugin-1.3.7.orig/panel-plugin/equake_applet.c xfce4-equake-plugin-1.3.7/panel-plugin/equake_applet.c
+--- xfce4-equake-plugin-1.3.7.orig/panel-plugin/equake_applet.c	2015-05-04 11:21:57.845952502 +0200
++++ xfce4-equake-plugin-1.3.7/panel-plugin/equake_applet.c	2015-05-04 11:50:07.402585428 +0200
+@@ -358,7 +358,7 @@
+   xfce_hvbox_set_orientation(XFCE_HVBOX(equakedata->hbox), orientation);
+ }
+ 
+-static void equake_size_changed(XfcePanelPlugin *applet, int size, struct Equake_Data *equakedata)
++static gboolean equake_size_changed(XfcePanelPlugin *applet, int size, struct Equake_Data *equakedata)
+ {
+   GtkOrientation orientation;
+ 
+@@ -370,6 +370,8 @@
+     gtk_widget_set_size_request(GTK_WIDGET(applet), -1, size);
+   else
+     gtk_widget_set_size_request(GTK_WIDGET(applet), size, -1);
++
++  return TRUE;
+ }
+ 
+ /*
+diff -ur xfce4-equake-plugin-1.3.7.orig/panel-plugin/equake_func.h xfce4-equake-plugin-1.3.7/panel-plugin/equake_func.h
+--- xfce4-equake-plugin-1.3.7.orig/panel-plugin/equake_func.h	2015-05-04 11:21:57.845952502 +0200
++++ xfce4-equake-plugin-1.3.7/panel-plugin/equake_func.h	2015-05-04 11:49:00.755920089 +0200
+@@ -281,7 +281,7 @@
+   struct Equake_Data *equakedata
+ );
+ 
+-static void equake_size_changed
++static gboolean equake_size_changed
+ (
+   XfcePanelPlugin *applet,
+   int size,
