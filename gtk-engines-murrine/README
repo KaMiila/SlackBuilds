@@ -1,0 +1,4 @@
+This build script will auto download the source code and check it against a sha256sum.
+
+gtk-engines-murrine (theme engine for GTK+3)
+
