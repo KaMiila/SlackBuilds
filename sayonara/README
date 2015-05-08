@@ -7,4 +7,4 @@
 This is a build script for sayonara music player.  This pulls from svn because I have experienced their server tarball frequently goes AWOL.
 
 ## Dependencies
- Gstreamer 1.0 (any any of its plugins you want).
+ Gstreamer 1.0 (and any of its plugins you want).
