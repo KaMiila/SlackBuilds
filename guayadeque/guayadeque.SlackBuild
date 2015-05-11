@@ -22,10 +22,11 @@
 #Variables
 
 PRGNAM=guayadeque
+DATE=$(date +%Y%m%d)
+VERSION=${VERSION:-svn$DATE}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://sourceforge.net/projects/guayadeque/files/guayadeque/0.3.7/guayadeque-0.3.7.tar.bz2"
-SHA1="3c1662e321a11aaabe37ed9e8b0c7c7d3f12950f"
+DOWNLOAD="http://svn.code.sf.net/p/guayadeque/code/"
 DEPENDENCIES="wxGTK gstreamer0.10"
 DOCS="LICENSE README changelog"
 
@@ -41,7 +42,6 @@ CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
-TARBALL=$( basename $DOWNLOAD)
 
 MARCH=$( uname -m )
 if [ -z "$ARCH" ]; then
@@ -78,16 +78,6 @@ case "ARCH" in
     *)       TARGET=$ARCH-slackware-linux ;;
 esac
 
-# Download and verify source
-if [ ! -e $TARBALL ]; then wget $DOWNLOAD; fi
-SUM=$( sha1sum $TARBALL | cut -d' ' -f1 )
-if [ "$SHA1" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
-  else
-	  echo "Source file verified."
-fi
-sleep 2
-VERSION=${VERSION:-$(echo $PRGNAM-*.tar.?z* | rev | cut -f 3- -d . | cut -f 1 -d - | rev)}
-
 # Prepare build location
 set -e
 rm -rf $PKG
@@ -95,9 +85,9 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP || exit 1
 rm -rf $PRGNAM-$VERSION
 
-# Untar source
-tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2 || exit 1
-cd $PRGNAM-$VERSION || exit 1
+# Clone Source
+svn checkout $DOWNLOAD $TMP/$PRGNAM-$VERSION || exit 1
+cd $PRGNAM-$VERSION/Trunk || exit 1
 
 chown -R root:root .
 chmod -R u+w,go+r-w,a+X-s .

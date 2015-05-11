@@ -1,8 +1,9 @@
 ### WARNING ###
 DISABLE CROSS FADING OR IT WILL SEGFAULT WHEN SWITCHING TO THE NEXT TRACK.
+Since this pulls from svn, this may or may not have been fixed.
 ###############
 
-This script will automatically download the sourcecode tarball for you.
+This script pulls from SVN!
 
 Guayadeque is a music management program designed for all music enthusiasts. It is Full Featured Linux media player that can easily manage large collections and uses the Gstreamer media framework.
 
