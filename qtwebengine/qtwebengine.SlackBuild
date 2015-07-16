@@ -23,11 +23,11 @@
 # I am not using capitals in the package name!
 PRGNAM=qtwebengine
 TARNAM=qt5
-VERSION=${VERSION:-5.4.1}
+VERSION=${VERSION:-5.5.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://download.qt-project.org/official_releases/qt/5.4/5.4.1/single/qt-everywhere-opensource-src-5.4.1.tar.xz"
-MD5SUM="7afb5f9235d8d42b5b6e832442a32a5d"
+DOWNLOAD="http://download.qt.io/official_releases/qt/5.5/5.5.0/single/qt-everywhere-opensource-src-5.5.0.tar.xz"
+MD5SUM="65d5282f3dee0336da9ed1f77148952f"
 DOCS="LICENSE.LGPLv3"
 
 ##
