@@ -12,4 +12,4 @@ wxGTK
 gstreamer 0.10
 qt5
 
-If you want to build it in qt4 delete line 129 in the build script.
+If you want to build it in qt4 delete line 119 in the build script.
