@@ -4,10 +4,6 @@ As always my build scripts will automatically download the source code and verif
 
 This does not pull from git, so it should be as stable as verion 0.9.0 is.
 
-#########  DISCLAIMER  #########
-There is a bug with QT5 verion 5.4.0!
-This bug is suppose to disapper with 5.4.1 but it has not been released yet!
-
 ## DEPENDENCIES ##
 ## Dependencies found on http://slackbuilds.org/
 QT5
@@ -16,3 +12,7 @@ libconf
 KWindowSystem
 KGuiAddons
 PolKitQt5
+
+## IMPORTANT READ FOR DUAL MONITORS ##
+
+If you have dual monitors (mulitihead) there are patches in pcmanfm-qt that will provide a fix for this.  It is not turned on by default because the patches are rather ugly hacks and most people probably do not want them implemented.  To enable the patches to apply, edit the pcmanfm-qt.Slackbuild file and change line 32 from NO to YES.
