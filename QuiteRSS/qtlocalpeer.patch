@@ -1,0 +1,10 @@
+--- 3rdparty/qtsingleapplication/qtlocalpeer.cpp	2015-08-24 23:03:11.253902541 -0700
++++ 3rdparty/qtsingleapplication/qtlocalpeer.new	2015-08-24 23:02:41.711558760 -0700
+@@ -41,6 +41,7 @@
+ 
+ #include "qtlocalpeer.h"
+ #include <QCoreApplication>
++#include <QDataStream>
+ #include <QTime>
+ 
+ #if defined(Q_OS_WIN)
