@@ -28,7 +28,7 @@ PRGNAM=mono
 DATE=$(date +%Y%m%d)
 VERSION=${VERSION:-git$DATE}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}
+TAG=${TAG:-_KaMii}
 DOWNLOAD="https://github.com/mono/mono"
 DOCS="ChangeLog COPYING.LIB LICENSE NEWS README.md docs"
 
