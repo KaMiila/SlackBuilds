@@ -139,8 +139,10 @@ install -D -m0644 wvsfull.dat $PKG/usr/share/$PRGNAM/wvs/wvsfull.dat
 cd ..
 # Install config file
 mkdir -p $PKG/etc
-install -D -m0644 $CWD/xtide.conf $PKG/etc/xtide.conf
+install -D -m0644 $CWD/xtide.conf $PKG/etc/xtide/xtide.conf
 
+# Patch source so xtide.conf file is in its own directory: https://aur.archlinux.org/packages/xtide/
+patch -p1 < $CWD/xtide-2.14-aur.patch
 # Patch source with libXaw3dXft-1.6.2d fix
 patch -p1 < $CWD/xtide-2.14-Demailly.patch
 
@@ -161,7 +163,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --mandir=/usr/man \
   --sysconfdir=/etc \
   --localstatedir=/var \
-  --enable-local-files \
+  --enable-local-files=/etc/xtide/xtide.conf \
   --build=$ARCH-slackware-linux \
   || exit 1
 
