@@ -24,8 +24,8 @@
 PRGNAM=libtcd
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="ftp://ftp.flaterco.com/xtide/libtcd-2.2.6.tar.bz2"
-MD5SUM="2d395b7ba907cfb7b38ba1c82943d8fc"
+DOWNLOAD="ftp://ftp.flaterco.com/xtide/libtcd-2.2.7.tar.bz2"
+MD5SUM="32e1a219c5dd196fe5a98eb2fcd60667"
 DEPENDENCIES=""
 DOCS="AUTHORS ChangeLog COPYING INSTALL NEWS README libtcd.html"
 
