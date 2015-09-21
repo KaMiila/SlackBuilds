@@ -117,16 +117,32 @@ rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2 || exit 1
 cd $PRGNAM-$VERSION || exit 1
 # Untar harmonics file
-HARVERS=${HARVERS:-$(echo $HARBALL | rev | cut -c 9- | rev)}
+HARVERS=${HARVERS:-$(echo $HARBALL | rev | cut -c 14- | rev)}
 tar xvf $CWD/$HARBALL || exit 1
 # Install harmonics file
 cd $HARVERS || exit 1
-install -D -m0644 $HARVERS.tcd $PKG/usr/share/$PRGNAM/$HARVERS.tcd
-
+mkdir -p $PKG/usr/share/$PRGNAM/harmonics
+install -D -m0644 $HARVERS-free.tcd $PKG/usr/share/$PRGNAM/harmonics/$HARVERS-free.tcd
+cd ..
+# Untar wvs files
 mkdir -p wvs
 cd wvs
-tar xvf $CWD/$WVS || exit 1
+tar xvf $CWD/$WVSBALL || exit 1
+# Install wvs files
+mkdir -p $PKG/usr/share/$PRGNAM/wvs
+install -D -m0644 wvs1.dat $PKG/usr/share/$PRGNAM/wvs/wvs1.dat
+install -D -m0644 wvs12.dat $PKG/usr/share/$PRGNAM/wvs/wvs12.dat
+install -D -m0644 wvs3.dat $PKG/usr/share/$PRGNAM/wvs/wvs3.dat
+install -D -m0644 wvs250k.dat $PKG/usr/share/$PRGNAM/wvs/wvs250k.dat
+install -D -m0644 wvs43.dat $PKG/usr/share/$PRGNAM/wvs/wvs43.dat
+install -D -m0644 wvsfull.dat $PKG/usr/share/$PRGNAM/wvs/wvsfull.dat
 cd ..
+# Install config file
+mkdir -p $PKG/etc
+install -D -m0644 $CWD/xtide.conf $PKG/etc/xtide.conf
+
+# Patch source with libXaw3dXft-1.6.2d fix
+patch -p1 < $CWD/xtide-2.14-Demailly.patch
 
 chown -R root:root .
 chmod -R u+w,go+r-w,a+X-s .
@@ -150,26 +166,29 @@ CXXFLAGS="$SLKCFLAGS" \
   || exit 1
 
 make || exit 1
-# Install WVS files
-install -D -m0644 
-# Install config file
-install -D -m0644
-# Install desktop file
-install -D -m0644
 make install DESTDIR=$PKG || exit 1
 
 # Strip binaries
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+# Install desktop file
+install -D -m0644 $CWD/$PRGNAM.desktop $PKG/usr/share/applications/$PRGNAM.desktop
+install -D -m0644 iconsrc/icon_48x48_orig.png $PKG/usr/share/pixmaps/$PRGNAM.png
+
 # Add documentation
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a $DOCS $PKG/usr/doc/$PRGNAM-$VERSION || true
+mkdir -p $PKG/usr/doc/$HARVERS
+cd $HARVERS
+cp -a COPYING ChangeLog $PKG/usr/doc/$HARVERS || true
+cd ..
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 # Add a package description
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 # Package it up
 cd $PKG
