@@ -13,6 +13,10 @@ KWindowSystem
 KGuiAddons
 PolKitQt5
 
+## README ICONS ##
+
+All icons will probably not show up by default, in order to get icons to display in pcmanfm-qt please install the faba-icon-theme and optionally the moko-icon-theme (which depends on faba).  Since these can be found on slackbuilds.org I do not feel the need to make my own slackbuild for these at this time.  I may in the future incorporate these as extras in the lxqt build.
+
 ## IMPORTANT READ FOR DUAL MONITORS ##
 
 If you have dual monitors (mulitihead) there are patches in pcmanfm-qt that will provide a fix for this.  It is not turned on by default because the patches are rather ugly hacks and most people probably do not want them implemented.  To enable the patches to apply, edit the pcmanfm-qt.Slackbuild file and change line 32 from NO to YES.
