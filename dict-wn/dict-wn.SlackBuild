@@ -26,7 +26,7 @@ BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
 DOWNLOAD="http://ftp.us.debian.org/debian/pool/main/w/wordnet/dict-wn_3.0-33_all.deb"
 VERSION=${VERSION:-3.0-33}
-SHA1=""
+SHA1="5e349e0ba193da2f25a1964e5c0177dc732db018"
 DEPENDENCIES=""
 DOCS=""
 
@@ -37,7 +37,7 @@ DOCS=""
 ##
 
 CWD=$(pwd)
-TMP=${TMP:-/tmp/SBo}
+TMP=${TMP:-/tmp/KaMii}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 TARBALL=$( basename $DOWNLOAD)
@@ -80,8 +80,10 @@ esac
 # Download and verify source
 if [ ! -e $TARBALL ]; then wget $DOWNLOAD; fi
 SUM=$( sha1sum $TARBALL | cut -d' ' -f1 )
-  echo "Source file verified."
-
+if [ "$SHA1" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
+  else
+	  echo "Source file verified."
+fi
 sleep 2
 
 # Prepare build location
