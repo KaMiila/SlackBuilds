@@ -1,6 +1,10 @@
 These are my personal SlackBuild scripts that differ from those found on SlackBuilds.org
 
-I am in no way affiliated with slackbuilds.org, nor are any of my scripts affiliated with them. Please do not ask them for help with my scripts. I AM SERIOUS, I AM NOT AFFILITATED WITH THEM!
+## NOTE ##
+I am using the term SlackBuild only for the sake of uniformity and standards within the Slackware community.  Most if not all third party build scripts use the .SlackBuild name so it is easy for the community to discover build scripts for applications.  Patrick Volkerding even uses this name for the offical build scripts for Slackware.  Forcing someone to use a different name will greatly go against the spirit and nature of FOSS.  I am using the SlackBuild name in my scripts so people can easily find them through web searches.  I am in no way affilited with their organization and do not wish to be involved with them.  
+##########
+
+I repeat!  I am in no way affiliated with slackbuilds.org, nor are any of my scripts affiliated with them. Please do not ask them for help with my scripts. I AM SERIOUS, I AM NOT AFFILITATED WITH THEM!
 
 Some of these are forked and modified from existing build scripts.  The original author(s) will most likely not support these forked versions.
 
