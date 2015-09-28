@@ -1,0 +1,132 @@
+#!/bin/sh
+
+# Slackware build script for libident
+
+# KaMii <lacielacie@rocketmail.com>
+# All your wrongs are belong to me PirateLeft 2015
+#
+# I dont give a flying fuck what you do with this script.  Hack it, sell it, compile it,
+# delete it, fap to it.
+#
+# 1. Redistribution consequences:
+#
+# YOU MUST GIVE CREDIT TO THE ORIGINAL AUTHOR OF THIS SCRIPT WITH A COPY OF THIS MESSAGE.
+# USING THIS SCRIPT IS YOUR BUSINESS.  NO ONE IS FORCING YOU TO USE IT, SO IF YOUR COMPUTER
+# BLOWS UP AND EVERYONE ON PLANET EARTH IS KILLED IN THE PROCESS, DO NOT BLAME ANYONE BUT
+# YOURSELF FOR BEING TOO STUPID TO RTFM BEFORE EXECUTING THIS SCRIPT.  I WILL STOP WRITING
+# DISCLAIMER INFORMATION NOW IN CAPITAL LETTERS BECAUSE I KNOW NO ONE EVEN READS THIS SHIT
+# ANYMORE.
+
+# HOMEPAGE="http://www.remlab.net/files/libident/ident.3.html"
+
+#Variables
+PRGNAM=libident
+BUILD=${BUILD:-1}
+TAG=${TAG:-_KaMii}
+DOWNLOAD="http://www.remlab.net/files/libident/libident-0.32.tar.gz"
+DOCS="AUTHORS COPYING ChangeLog INSTALL NEWS README"
+MD5="9b9346eacc28d842d164881f0efa3388"
+
+## DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING ##
+##                     YOU HAVE BEEN WARNED                       ##
+##                        NSA IS WATCHING                         ##
+
+# Automatically determine the architecture we're building on:
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+TARBALL=$( basename $DOWNLOAD)
+
+MARCH=$( uname -m )
+if [ -z "$ARCH" ]; then
+  case "$MARCH" in
+    i?86)    export ARCH=i486 ;;
+    armv7hl) export ARCH=$MARCH ;;
+    armv6hl) export ARCH=$MARCH ;;
+    arm*)    export ARCH=arm ;;
+    # Unless $ARCH is already set, use uname -m for all other archs:
+    *)       export ARCH=$MARCH ;;
+  esac
+fi
+
+case "$ARCH" in
+  i486)      SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+             SLKLDFLAGS=""; LIBDIRSUFFIX=""
+             ;;
+  x86_64)    SLKCFLAGS="-O2 -fPIC"
+             SLKLDFLAGS="-L/usr/lib64"; LIBDIRSUFFIX="64"
+             ;;
+  armv7hl)   SLKCFLAGS="-O2 -march=armv7-a -mfpu=vfpv3-d16"
+             SLKLDFLAGS=""; LIBDIRSUFFIX=""
+             ;;
+  armv6hl)   SLKCFLAGS="-O2 -march=armv6 -mfpu=vfp -mfloat-abi=hard"
+             SLKLDFLAGS=""; LIBDIRSUFFIX=""
+             ;;
+  *)         SLKCFLAGS="-O2"
+             SLKLDFLAGS=""; LIBDIRSUFFIX=""
+             ;;
+esac
+
+case "ARCH" in
+    arm*)    TARGET=$ARCH-slackware-linux-gnueabi ;;
+    *)       TARGET=$ARCH-slackware-linux ;;
+esac
+
+# Download and verify source
+if [ ! -e $TARBALL ]; then wget $DOWNLOAD; fi
+SUM=$( md5sum $TARBALL | cut -d' ' -f1 )
+if [ "$MD5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
+  else
+	  echo "Source file verified."
+fi
+sleep 2
+VERSION=${VERSION:-$(echo $PRGNAM-*.tar.?z* | rev | cut -f 3- -d . | cut -f 1 -d - | rev)}
+
+# Prepare build location
+set -e
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP || exit 1
+rm -rf $PRGNAM-$VERSION
+
+# Untar source
+tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+cd $PRGNAM-$VERSION
+
+chown -R root:root .
+find -L . \
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+  -o -perm 511 \) -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+ -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
+./configure \
+  --prefix=/usr \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --sysconfdir=/etc \
+  --localstatedir=/var \
+  --mandir=/usr/man \
+  --build=$ARCH-slackware-linux
+
+make
+make install-strip DESTDIR=$PKG
+
+find $PKG/usr/man -type f -exec gzip -9 {} \;
+for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+
+# Add documentation
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a $DOCS $PKG/usr/doc/$PRGNAM-$VERSION || true
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+chown -R root:root $PKG/usr/doc/$PRGNAM-$VERSION
+
+# Add a package description
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}

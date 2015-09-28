@@ -1,0 +1,5 @@
+This will build libident.
+
+This slackbuild will automatically download the source code for you, check it against an md5sum, then compile it to a package which you can install with installpkg.
+
+libident tries to connect to a remote IDENT server to establish the identity of the peer connected on fd, which should be a socket file descriptor.
