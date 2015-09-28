@@ -163,7 +163,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --mandir=/usr/man \
   --sysconfdir=/etc \
   --localstatedir=/var \
-  --enable-local-files=/etc/xtide/xtide.conf \
   --build=$ARCH-slackware-linux \
   || exit 1
 
