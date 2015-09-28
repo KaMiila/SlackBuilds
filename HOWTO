@@ -1,0 +1,24 @@
+Due to the trolling and disrespectful nature of a slackbuilds.org developer I am now including my own HOWTO file because I am tired of the constant war I have had with this most immature individual over the years.  Yes, years.  One would think most people can easily link to the slackbuilds HOWTO and figure out how my scripts work because they are very similar but... alas I shall stop linking people to slackbuilds.org.
+
+#### DO NOT READ ANY HELP FILES FROM SLACKBUILDS  ####
+### AS THEY SEEM TO THINK IT WILL ONLY CONFUSE YOU ###
+
+HOW MY BUILD SCRIPTS WORK  (gods, I hope the slackbuilds people don't force me to stop using the name slackbuilds).
+
+Step one: <sarcasm> Ensure your router or firewall is blocking slackbuilds.org so you are not confused. </sarcasm>
+
+Step two:  Clone my repo by issuing this command, 'git clone https://github.com/KaMiila/SlackBuilds'
+
+Step three:  Navigate to the directory of the program you wish to compile on your system and read the README file located in there.  This file will give you important information about the script and what dependencies may be required.
+
+Step four:  Open the .SlackBuild file in your favorite editor and  read through it so you can get a better understanding of what it will do.  Even if you do not understand bash scripting, take a quick look at the file.
+
+Step five:  As root, execute the .SlackBuild file
+
+Step six:  If the source is in a tarball format, the script will first look for the source code in the current working directory (CWD), if it is not there it will download the source tarball and verify it with a md5sum or sha1 hash.  Otherwise, the script will pull that sourcecode directly from git or svn.
+
+	Side Note:  Tarballs will be saved in CWD.  Git or svn pulls go directly to the location of your build directory (usually /tmp/$PRGNAM-$VERSION) unless you are exporting locations in your shell.
+
+Step seven:  When the compile is finished navigate to your OUTPUT directory (by default it is /tmp unless you have exported that location) and as root install it with upgradepkg --reinstall --install-new $PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz} (just use tab completion it will make things easier for you).
+
+Step eight:  Smile, for the NSA has been watching you through your computer monitor this entire time.
