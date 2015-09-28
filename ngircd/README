@@ -1,0 +1,13 @@
+ngircd (Next Generation IRC Daemon)
+
+ngIRCd is a portable IRC daemon written from scratch.  It is easy to configure, supports server links (even with original ircds), and runs on hosts with changing IP addresses (such as dial-in networks).
+
+This script will default with using openssl and libident.  If you would rather it use gnutls then change line 115 to --with-gnutls
+
+This scritp will auto download the source code, verify it against an md5sum, then compile it into a package which you can then install using installpkg.
+
+## NOTE ##
+I have told it to look for config files in /etc/ngircd/ngircd.conf because I felt it will make /etc much less cluttered.
+
+## DEPENDENCIES ##
+libident - this can be found on my repo https://github.com/KaMiila/SlackBuilds
