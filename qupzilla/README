@@ -3,7 +3,7 @@
 ####    #####    ####
 
 REQUIRED DEPENDENCIES
-qt5  #found on slackbuilds.org
+qt5.6  #found on slackbuilds.org
 QTWebEngine  #found in my repo
 
 QupZilla is a lightweight cross-platform web browser,
