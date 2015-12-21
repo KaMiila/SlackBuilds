@@ -25,7 +25,7 @@ PRGNAM=sayonara
 DATE=$(date +%Y%m%d)
 VERSION=${VERSION:-svn$DATE}
 BUILD=${BUILD:-1}
-DOWNLOAD="http://sayonara-player.googlecode.com/svn/trunk/"
+DOWNLOAD="http://sayonara-player.com/svn/sayonara/trunk"
 TAG=${TAG:-_KaMii}
 DOCS="README.txt MANUAL license.txt"
 
