@@ -24,8 +24,8 @@
 PRGNAM=lxqt-config
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/lxqt/0.9.0/lxqt-config-0.9.0.tar.xz"
-SHA1="b4f4a182101817ebbb3b4d37224d861992820dd9"
+DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/lxqt-config-0.10.0.tar.xz"
+SHA1="79a37107c1edd00a166aed91dad48fdc7f20b8df"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 
