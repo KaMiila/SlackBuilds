@@ -24,8 +24,8 @@
 PRGNAM=libsysstat
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/libsysstat/0.3.0/libsysstat-0.3.0.tar.xz"
-SHA1="b12e04cd6d1117f4d6a7e879fa9170bc6ac95b77"
+DOWNLOAD="http://downloads.lxqt.org/libsysstat/0.3.1/libsysstat-0.3.1.tar.xz"
+SHA1="96857320c5525bbc4f062196a0422ffce04d4c74"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 
