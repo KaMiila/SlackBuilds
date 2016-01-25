@@ -24,8 +24,8 @@
 PRGNAM=lxqt-session
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/lxqt/0.9.0/lxqt-session-0.9.0.tar.xz"
-SHA1="f1cd3af86aa2dfe92c38d8d5cd5d219c661ce6c1"
+DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/lxqt-session-0.10.0.tar.xz"
+SHA1="de929bf22ba33b97ab453c1e69d77f798c1c69f3"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 
