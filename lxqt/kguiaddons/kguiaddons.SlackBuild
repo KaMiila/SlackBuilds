@@ -96,7 +96,7 @@ cd $TMP || exit 1
 rm -rf $PRGNAM-$VERSION
 
 # Untar source
-tar xvf $CWD/$PRGNAM-$VERSION.tar.xz -C $PRGNAM-$VERSION || exit 1
+tar xvf $CWD/$PRGNAM-$VERSION.tar.xz || exit 1
 cd $PRGNAM-$VERSION || exit 1
 
 chown -R root:root .
