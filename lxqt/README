@@ -8,11 +8,6 @@ This does not pull from git, so it should be as stable as verion 0.9.0 is.
 ## Dependencies found on http://slackbuilds.org/
 QT5
 libconf
-## Dependencies found from alienBOB http://alien.slackbook.org/slackware/ktown/
-KWindowSystem
-KGuiAddons
-PolKitQt5
-Solid (found in frameworks)
 
 ## README ICONS ##
 
@@ -23,10 +18,10 @@ All icons will probably not show up by default, in order to get icons to display
 If you have dual monitors (mulitihead) there are patches in pcmanfm-qt that will provide a fix for this.  It is not turned on by default because the patches are rather ugly hacks and most people probably do not want them implemented.  To enable the patches to apply, edit the pcmanfm-qt.Slackbuild file and change line 32 from NO to YES.
 
 ## Changes since 0.9.0
-liblxqt-mount is no longer supported and has been taken over by
-yet-another-KDE dependency.  Use KF5 Solid instead.  (Personal note:  The only
-reason I want to use lxqt is to walk away from KDE while still using a qt DE,
-forcing MOAR KDE shit fucking dependencies annoys the fuck out of me because
-in-order to compile this you either need to first compile KDE, or grab
-someone's binaries.  This project is turning into lazyness by the devs.  I may
-stop using LXQT if they keep forcing KDE down my throat).
+liblxqt-mount is no longer supported and has been taken over by KF5 Solid
+instead.  (If upgrading please removepkg liblxqt-mount-0.9.0-x86_64-1_KaMii).
+
+I now offer all KDE dependencies which you can compile!  No more binaries!
+
+### WARNING ###
+polkit-qt5 pulls from git
