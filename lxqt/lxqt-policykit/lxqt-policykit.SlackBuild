@@ -24,8 +24,8 @@
 PRGNAM=lxqt-policykit
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/lxqt/0.9.0/lxqt-policykit-0.9.0.tar.xz"
-SHA1="f765be62205efcc106e1fba12e5d6a95d4c4b4dc"
+DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/lxqt-policykit-0.10.0.tar.xz"
+SHA1="5280b6e6f4d2a71bf6607f1e65beb9cab547bc16"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 
