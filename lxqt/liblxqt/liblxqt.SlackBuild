@@ -24,8 +24,8 @@
 PRGNAM=liblxqt
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/lxqt/0.9.0/liblxqt-0.9.0.tar.xz"
-SHA1="c51418396843b7fd4c159fb24e7ec3e367fdb825"
+DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/liblxqt-0.10.0.tar.xz"
+SHA1="6a8fc5ca404f4ac00c9663113611caacc68fb94e"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 

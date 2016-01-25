@@ -24,8 +24,8 @@
 PRGNAM=libqtxdg
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/libqtxdg/1.1.0/libqtxdg-1.1.0.tar.xz"
-SHA1="6cfd2b557130f48770b5a11396c1fee7b967c55c"
+DOWNLOAD="http://downloads.lxqt.org/libqtxdg/1.3.0/libqtxdg-1.3.0.tar.xz"
+SHA1="cd5ad7881099ceba52df893005dc85153980ef45"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING README"
 

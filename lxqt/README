@@ -12,6 +12,7 @@ libconf
 KWindowSystem
 KGuiAddons
 PolKitQt5
+Solid (found in frameworks)
 
 ## README ICONS ##
 
@@ -20,3 +21,12 @@ All icons will probably not show up by default, in order to get icons to display
 ## IMPORTANT READ FOR DUAL MONITORS ##
 
 If you have dual monitors (mulitihead) there are patches in pcmanfm-qt that will provide a fix for this.  It is not turned on by default because the patches are rather ugly hacks and most people probably do not want them implemented.  To enable the patches to apply, edit the pcmanfm-qt.Slackbuild file and change line 32 from NO to YES.
+
+## Changes since 0.9.0
+liblxqt-mount is no longer supported and has been taken over by
+yet-another-KDE dependency.  Use KF5 Solid instead.  (Personal note:  The only
+reason I want to use lxqt is to walk away from KDE while still using a qt DE,
+forcing MOAR KDE shit fucking dependencies annoys the fuck out of me because
+in-order to compile this you either need to first compile KDE, or grab
+someone's binaries.  This project is turning into lazyness by the devs.  I may
+stop using LXQT if they keep forcing KDE down my throat).
