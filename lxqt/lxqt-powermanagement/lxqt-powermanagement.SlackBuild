@@ -24,8 +24,8 @@
 PRGNAM=lxqt-powermanagement
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/lxqt/0.9.0/lxqt-powermanagement-0.9.0.tar.xz"
-SHA1="435128210b33c19119c980e4a3efcf4d5681f458"
+DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/lxqt-powermanagement-0.10.0.tar.xz"
+SHA1="55d2b881b2cae4694415086f4b621d794dacc34f"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 
