@@ -24,8 +24,8 @@
 PRGNAM=lxqt-openssh-askpass
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/lxqt/0.9.0/lxqt-openssh-askpass-0.9.0.tar.xz"
-SHA1="cfdc662695cddc6a7f9e6a0473154e0a399f1433"
+DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/lxqt-openssh-askpass-0.10.0.tar.xz"
+SHA1="287293c5a9508ce2c9734af2b981a377b19e85a9"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 
