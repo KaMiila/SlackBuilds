@@ -24,8 +24,8 @@
 PRGNAM=lxqt-qtplugin
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/lxqt/0.9.0/lxqt-qtplugin-0.9.0.tar.xz"
-SHA1="543ed38942d4e82f5d875f831eaef471c5313148"
+DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/lxqt-qtplugin-0.10.0.tar.xz"
+SHA1="b4d32584daf8d4bbb5e5c30eb481b0431fa60686"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 
