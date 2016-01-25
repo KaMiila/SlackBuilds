@@ -24,8 +24,8 @@
 PRGNAM=lxqt-runner
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/lxqt/0.9.0/lxqt-runner-0.9.0.tar.xz"
-SHA1="dc33c03ffe9ea6bd8ae6f1daca20b3738cc732d3"
+DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/lxqt-runner-0.10.0.tar.xz"
+SHA1="be7ecfa9dede0b970fa88cff5310cd094fda690d"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 
