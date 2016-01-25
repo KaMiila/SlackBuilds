@@ -35,7 +35,7 @@ BASELIBS="\
   extra-cmake-modules \
   kwindowsystem \
   kguiaddons \
-  polkit-qt5 \
+  polkit-qt5-1 \
   libqtxdg \
   liblxqt \
   solid \
