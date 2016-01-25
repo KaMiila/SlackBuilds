@@ -32,9 +32,13 @@ TMP=${TMP:-/tmp}
 OUTPUT=${OUTPUT:-/tmp}
 
 BASELIBS="\
+  extra-cmake-modules \
+  kwindowsystem \
+  kguiaddons \
+  polkit-qt5 \
   libqtxdg \
   liblxqt \
-  liblxqt-mount \
+  solid \
   lxqt-globalkeys \
   lxqt-notificationd \
   libsysstat \
