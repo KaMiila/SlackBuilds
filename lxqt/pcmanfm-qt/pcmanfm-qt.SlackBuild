@@ -24,8 +24,8 @@
 PRGNAM=pcmanfm-qt
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/lxqt/0.9.0/pcmanfm-qt-0.9.0.tar.xz"
-SHA1="25f9a805e3987e1d798fad749b78b6df9348ce45"
+DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/pcmanfm-qt-0.10.0.tar.xz"
+SHA1="ffb276293b63935addea73ab4b2ce756856aa91a"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 # If you have a dual monitor setup you will want to change this to YES
