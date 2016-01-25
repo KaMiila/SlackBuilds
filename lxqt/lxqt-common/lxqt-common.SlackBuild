@@ -24,8 +24,8 @@
 PRGNAM=lxqt-common
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/lxqt/0.9.0/lxqt-common-0.9.0.tar.xz"
-SHA1="3aa5c00ed7dbc40f6fe1283bc1d5f5a0043d733d"
+DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/lxqt-common-0.10.0.tar.xz"
+SHA1="1bef9da64640a377027690006057b63f0d75df2b"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 
