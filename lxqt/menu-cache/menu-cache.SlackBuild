@@ -24,8 +24,8 @@
 PRGNAM=menu-cache
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.sourceforge.net/lxde/menu-cache-1.0.0.tar.xz"
-MD5="4a8e6c1a86d5e64ec725d850a4abfbad"
+DOWNLOAD="http://downloads.sourceforge.net/lxde/menu-cache-1.0.1.tar.xz"
+MD5="a856ba860b16fdc8c69ee784bc4ade36"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 
