@@ -24,8 +24,8 @@
 PRGNAM=lxqt-globalkeys
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/lxqt/0.9.0/lxqt-globalkeys-0.9.0.tar.xz"
-SHA1="ce949f1a2b7da50377da98ba04cd17da327b81a6"
+DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/lxqt-globalkeys-0.10.0.tar.xz"
+SHA1="161cb4ed278dfcfdc1803cc04a601b5acc689f30"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 
