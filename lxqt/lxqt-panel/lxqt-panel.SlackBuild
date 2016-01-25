@@ -24,8 +24,8 @@
 PRGNAM=lxqt-panel
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="http://downloads.lxqt.org/lxqt/0.9.0/lxqt-panel-0.9.0.tar.xz"
-SHA1="5372669e309507591c164ef6b480d81d6fab2021"
+DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/lxqt-panel-0.10.0.tar.xz"
+SHA1="c70dc07abe9d35c6f0a41c12813f71f7350c3eac"
 DEPENDENCIES=""
 DOCS="AUTHORS COPYING"
 
