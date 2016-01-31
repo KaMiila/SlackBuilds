@@ -19,3 +19,11 @@ I now offer all KDE dependencies which you can compile!  No more binaries!
 
 ### WARNING ###
 polkit-qt5 pulls from git
+
+To get polkit-qt5 to compile you will need to upgrade these slackware
+packages:
+
+polkit-0.105 to polkit-0113
+polkit-qt-1-0.103.0 to polkit-qt-1-0.112.0
+
+I may add these later as dependencies
