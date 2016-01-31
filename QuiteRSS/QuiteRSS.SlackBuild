@@ -24,9 +24,9 @@
 PRGNAM=QuiteRSS
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="https://quiterss.org/files/0.18.2/QuiteRSS-0.18.2-src.tar.gz"
-
-DOCS="AUTHORS  CHANGELOG COPYING HISTORY_EN HISTORY_RU INSTALL README.md"
+DOWNLOAD="https://quiterss.org/files/0.18.3/QuiteRSS-0.18.3-src.tar.gz"
+MD5="9ef351821b685192378e1f47a764675f"
+DOCS="AUTHORS CHANGELOG COPYING HISTORY_EN HISTORY_RU INSTALL README.md"
 
 ##
 ## DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING ##
@@ -41,7 +41,6 @@ TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 TARBALL=$( basename $DOWNLOAD)
-MD5="75a6a65d37a21fa3a24d89035cbbff73"
 MARCH=$( uname -m )
 if [ -z "$ARCH" ]; then
   case "$MARCH" in
@@ -106,9 +105,6 @@ find -L . \
   -o -perm 511 \) -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
-
-# Fix qt 5.5.0 build error
-patch -p0 < $CWD/qtlocalpeer.patch
 
 # Compile the source code
 mkdir _build && cd _build
