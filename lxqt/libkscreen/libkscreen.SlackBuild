@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-# Slackware build script for liblxqt
+# Slackware build script for libkscreen
 #
-# PirateLeft 2014 KaMii
+# PirateLeft 2016 KaMii
 # All wrongs reserved
 #
 # I dont give a flying fuck what you do with this script.  Hack it, sell it, compile it,
@@ -17,17 +17,17 @@
 # DISCLAIMER INFORMATION NOW IN CAPITAL LETTERS BECAUSE I KNOW NO ONE EVEN READS THIS SHIT
 # ANYMORE.
 
-# HOMEPAGE="http://www.lxqt.org/"
+# HOMEPAGE="https://projects.kde.org/"
 
 #Variables
 
-PRGNAM=liblxqt
+PRGNAM=libkscreen
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/liblxqt-0.10.0.tar.xz"
-SHA1="45870efbf773c889db2e9f4c6a65dfb95253c56e"
+DOWNLOAD="http://download.kde.org/stable/plasma/5.5.4/libkscreen-5.5.4.tar.xz"
+SHA1="87fdf9c54d561641530a99f77a17709b717adf07"
 DEPENDENCIES=""
-DOCS="AUTHORS COPYING"
+DOCS="COPYING COPYING.LIB"
 
 ##
 ## DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING ##
@@ -108,9 +108,12 @@ find -L . \
  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 # Time to complie this source code
+export KDE_OPT_ARGS=" -Wno-dev -DBUILD_TESTING=OFF -DKDE4_BUILD_TESTS=OFF -DSITE=\"slackware.com\" -DKDE_DISTRIBUTION_TEXT=\"volkerdi@slackware.com\" "
 mkdir build
 cd build
   cmake \
+$KDE_OPT_ARGS \
+    -DKDE_PLATFORM_FEATURE_DISABLE_DEPRECATED=TRUE \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_C_FLAGS_RELEASE:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
@@ -118,9 +121,14 @@ cd build
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DMAN_INSTALL_DIR=/usr/man \
-    -DSYSCONF_INSTALL_DIR=/etc \
+    -DSYSCONF_INSTALL_DIR=/etc/kde \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
-    -DUSE_QT5=ON \
+    -DLIB_INSTALL_DIR=lib$LIBDIRSUFFIX \
+    -DLIBEXEC_INSTALL_DIR=lib$LIBDIRSUFFIX \
+    -DQML_INSTALL_DIR=lib$LIBDIRSUFFIX/qt5/qml \
+    -DQT_PLUGIN_INSTALL_DIR=lib$LIBDIRSUFFIX/qt5/plugins \
+    -DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+    -Dlconvert_executable=/usr/lib$LIBDIRSUFFIX/qt5/bin/lconvert \
     ..
 make || exit 1
 make install DESTDIR=$PKG || exit 1

@@ -48,6 +48,8 @@ BASELIBS="\
 "
 
 COMPONENTS="\
+  libxkbcommon \
+  libdbusmenu-qt \
   lxqt-panel \
   pcmanfm-qt \
   lxqt-session \
@@ -56,6 +58,7 @@ COMPONENTS="\
   lxqt-policykit \
   lxqt-powermanagement \
   lximage-qt \
+  libkscreen \
   lxqt-config \
   obconf-qt \
   compton-conf \

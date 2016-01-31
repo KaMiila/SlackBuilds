@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-# Slackware build script for Polkit-qt5-1
+# Slackware build script for libxkbcommon
 #
-# PirateLeft 2015 KaMii
+# PirateLeft 2016 KaMii
 # All wrongs reserved
 #
 # I dont give a flying fuck what you do with this script.  Hack it, sell it, compile it,
@@ -17,17 +17,17 @@
 # DISCLAIMER INFORMATION NOW IN CAPITAL LETTERS BECAUSE I KNOW NO ONE EVEN READS THIS SHIT
 # ANYMORE.
 
-# HOMEPAGE="https://projects.kde.org/projects/kdesupport/polkit-qt-1"
+# HOMEPAGE="http://xkbcommon.org/"
 
 #Variables
 
-PRGNAM=polkit-qt5-1
-DATE=$(date +%Y%m%d)
-VERSION=${VERSION:-git$DATE}
+PRGNAM=libxkbcommon
 BUILD=${BUILD:-1}
-DOWNLOAD="git://anongit.kde.org/polkit-qt-1"
 TAG=${TAG:-_KaMii}
-DOCS="AUTHORS COPYING INSTALL README"
+DOWNLOAD="http://xkbcommon.org/download/libxkbcommon-0.5.0.tar.xz"
+MD5="2e1faeafcc609c30af3a561a91e84158"
+DEPENDENCIES=""
+DOCS="README.md NEWS COPYING"
 
 ##
 ## DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING ##
@@ -41,6 +41,7 @@ CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
+TARBALL=$( basename $DOWNLOAD)
 
 MARCH=$( uname -m )
 if [ -z "$ARCH" ]; then
@@ -77,10 +78,15 @@ case "ARCH" in
     *)       TARGET=$ARCH-slackware-linux ;;
 esac
 
-# Avoid a version number in .la files:
-if [ -d /usr/lib${LIBDIRSUFFIX}/qt ]; then
-  QTDIR=/usr/lib${LIBDIRSUFFIX}/qt
+# Download and verify source
+if [ ! -e $TARBALL ]; then wget $DOWNLOAD; fi
+SUM=$( md5sum $TARBALL | cut -d' ' -f1 )
+if [ "$MD5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
+  else
+	  echo "Source file verified."
 fi
+sleep 2
+VERSION=${VERSION:-$(echo $PRGNAM-*.tar.?z* | rev | cut -f 3- -d . | cut -f 1 -d - | rev)}
 
 # Prepare build location
 set -e
@@ -89,34 +95,36 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP || exit 1
 rm -rf $PRGNAM-$VERSION
 
-# Clone Souce
-git clone $DOWNLOAD $TMP/$PRGNAM-$VERSION || exit 1
+# Untar source
+tar xvf $CWD/$PRGNAM-$VERSION.tar.xz || exit 1
 cd $PRGNAM-$VERSION || exit 1
 
 chown -R root:root .
-find . \
- \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
- -exec chmod 755 {} \; -o \
- \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
- -exec chmod 644 {} \;
+chmod -R u+w,go+r-w,a+X-s .
+find -L . \
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+  -o -perm 511 \) -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+ -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-# Time to compile this source code
-export KDE_OPT_ARGS=" -Wno-dev -DBUILD_TESTING=OFF -DKDE4_BUILD_TESTS=OFF -DSITE=\"slackware.com\" -DKDE_DISTRIBUTION_TEXT=\"volkerdi@slackware.com\" "
-mkdir -p build
-cd build
-  cmake \
-    $KDE_OPT_ARGS \
-    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DMAN_INSTALL_DIR=/usr/man \
-    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
-    ..
+# Time to complie this source code
+export PKG_CONFIG_PATH=/usr/lib${LIBDIRSUFFIX}/pkgconfig
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
+./configure \
+  --prefix=/usr \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --sysconfdir=/etc \
+  --localstatedir=/var \
+  --mandir=/usr/man \
+  --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --build=$ARCH-slackware-linux \
+  --disable-static
 make || exit 1
-make install DESTDIR=$PKG || exit 1
-cd -
+make install-strip DESTDIR=$PKG || exit 1
+ldconfig
 
-# Strip binaries
+# Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
@@ -140,4 +148,6 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 # Package it up
 cd $PKG
 /sbin/makepkg -p -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+
+
 

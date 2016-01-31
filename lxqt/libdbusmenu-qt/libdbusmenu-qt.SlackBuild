@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-# Slackware build script for liblxqt
+# Slackware build script for libdbusmenu-qt5
 #
-# PirateLeft 2014 KaMii
+# PirateLeft 2016 KaMii
 # All wrongs reserved
 #
 # I dont give a flying fuck what you do with this script.  Hack it, sell it, compile it,
@@ -17,17 +17,17 @@
 # DISCLAIMER INFORMATION NOW IN CAPITAL LETTERS BECAUSE I KNOW NO ONE EVEN READS THIS SHIT
 # ANYMORE.
 
-# HOMEPAGE="http://www.lxqt.org/"
+# HOMEPAGE="https://launchpad.net/libdbusmenu-qt"
 
 #Variables
 
-PRGNAM=liblxqt
+PRGNAM=libdbusmenu-qt
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="https://downloads.lxqt.org/lxqt/0.10.0/liblxqt-0.10.0.tar.xz"
-SHA1="45870efbf773c889db2e9f4c6a65dfb95253c56e"
+DOWNLOAD="http://www.linuxfromscratch.org/~krejzi/libdbusmenu-qt-0.9.3+15.10.20150604.tar.xz"
+MD5="d21a1f5569e0bc9c9245b4f71761c62f"
 DEPENDENCIES=""
-DOCS="AUTHORS COPYING"
+DOCS="README NEWS COPYING"
 
 ##
 ## DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING ##
@@ -80,8 +80,8 @@ esac
 
 # Download and verify source
 if [ ! -e $TARBALL ]; then wget $DOWNLOAD; fi
-SUM=$( sha1sum $TARBALL | cut -d' ' -f1 )
-if [ "$SHA1" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
+SUM=$( md5sum $TARBALL | cut -d' ' -f1 )
+if [ "$MD5" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1; 
   else
 	  echo "Source file verified."
 fi
@@ -108,6 +108,22 @@ find -L . \
  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 # Time to complie this source code
+mkdir build-qt4
+cd build-qt4
+  cmake \
+    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_C_FLAGS_RELEASE:STRING="$SLKCFLAGS" \
+    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_CXX_FLAGS_RELEASE:STRING="$SLKCFLAGS" \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DMAN_INSTALL_DIR=/usr/man \
+    -DSYSCONF_INSTALL_DIR=/etc \
+    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
+    -DUSE_QT4=ON \
+    ..
+make || exit 1
+cd ..
 mkdir build
 cd build
   cmake \
@@ -120,10 +136,15 @@ cd build
     -DMAN_INSTALL_DIR=/usr/man \
     -DSYSCONF_INSTALL_DIR=/etc \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
-    -DUSE_QT5=ON \
+    -Wno-dev \
     ..
 make || exit 1
-make install DESTDIR=$PKG || exit 1
+cd ..
+cd build-qt4
+make DESTDIR=$PKG install || exit 1
+cd ..
+cd build
+make DESTDIR=$PKG install || exit 1
 
 # Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
@@ -149,4 +170,3 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 # Package it up
 cd $PKG
 /sbin/makepkg -p -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
-
