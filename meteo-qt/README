@@ -1,0 +1,11 @@
+Meteo-qt:  System tray application for weather status information.
+
+## WARNING ##
+This pulls from git
+
+### DEPENDENCIES ###
+python3-lxml
+python3-qt5
+python3-sip
+python3-urllib3
+
