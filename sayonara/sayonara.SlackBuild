@@ -25,7 +25,7 @@ PRGNAM=sayonara
 DATE=$(date +%Y%m%d)
 VERSION=${VERSION:-svn$DATE}
 BUILD=${BUILD:-1}
-DOWNLOAD="http://sayonara-player.com/svn/sayonara/trunk"
+DOWNLOAD="https://git.sayonara-player.com/sayonara.git"
 TAG=${TAG:-_KaMii}
 DOCS="README.txt MANUAL license.txt"
 
@@ -85,7 +85,7 @@ cd $TMP || exit 1
 rm -rf $PRGNAM-$VERSION
 
 # Clone Souce
-svn checkout $DOWNLOAD $TMP/$PRGNAM-$VERSION || exit 1
+git clone $DOWNLOAD $TMP/$PRGNAM-$VERSION || exit 1
 cd $PRGNAM-$VERSION || exit 1
 
 chown -R root:root .
