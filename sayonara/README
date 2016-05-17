@@ -1,7 +1,7 @@
 ######################
 ##  Caution Caution ##
 ##  This Pulls From ##
-##        SVN       ##
+##        GIT       ##
 ######################
 
 This is a build script for sayonara music player.  This pulls from svn because I have experienced their server tarball frequently goes AWOL.
