@@ -23,7 +23,7 @@
 
 PRGNAM=sayonara
 DATE=$(date +%Y%m%d)
-VERSION=${VERSION:-svn$DATE}
+VERSION=${VERSION:-git$DATE}
 BUILD=${BUILD:-1}
 DOWNLOAD="https://git.sayonara-player.com/sayonara.git"
 TAG=${TAG:-_KaMii}
