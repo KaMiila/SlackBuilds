@@ -1,0 +1,9 @@
+#### IT'S A TRAP ####
+ THIS PULLS FROM GIT
+####    #####    ####
+
+REQUIRED DEPENDENCIES
+qt5
+
+cryfs-gui is a Qt/C++ GUI application that manages encrypted folders through
+cryfs and encfs backends.
