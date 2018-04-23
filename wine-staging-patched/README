@@ -1,23 +1,55 @@
 wine-staging (Wine Staging is the testing area of winehq.org)
 
-It  contains  bug fixes and features, which have not been  integrated
+## NSA APPROVED THIS HACK FROM SLACKBUILDS.ORG ##
+
+## IT'S A TRAP ##
+## THIS PULLS  ##
+##  FROM GIT   ##
+
+Git Clones from Master Branch, dont like this?  Edit the .SlackBuilds file.
+
+This will compile 32 bit, 64 bit, or both (if you so choose)!
+
+## OPTIONS ##
+
+With no options this SlackBuild will compile ONLY 32 bit wine-staging.
+
+## To build a package for both 64 bit and 32 bit:
+
+WIN64=yes ./wine-staging-patched.SlackBuild
+
+## To disable win32 support, use:
+
+NOWIN32=yes ./wine-staging-patched.SlackBuild
+
+## Or, combine them both for only 64 bit:
+
+WIN64=yes NOWIN32=yes ./wine-staging-patched.SlackBuild
+
+## To disable OpenGL support:
+
+OPENGL=no ./wine-staging-patched.SlackBuild
+
+It  contains  bug fixes and features (or may introduce more bugs. Who
+knows? Only the NAS and Santa Claus), which have not been  integrated
 into the development branch yet.  The  idea  of  Wine  Staging  is to
 provide  experimental  features  faster  to  end  users  and  to give
 developers  the  possibility  to  discuss  and  improve their patches
 before they are integrated into the main branch.
 
-This  is  a  current  development  branch  of Wine appended with full
-patches of Staging area.
-
-NOTE:  At  the moment, it only compiles a 32-bit version of Wine, this
-may change in the future with  the ability to compile both 64-bit  and
-32-bit version of Wine.  You'll  need  a  multilib  system in order to
-compile this.
-
 While  this  is  list  as a separate package, this WILL overwrite your
 normal Wine binaries! Please keep this in mind.
 
-Compile  options/optional  dependences  (keep in mind, you need 32-bit
-libs of each):
-
 See README.SLACKWARE for a giant list of dependencies.
+
+                     ## DANGER DANGER DANGER ##
+## WIN64 requires multilibs!!!  grab my multilibs SlackBuild first! ##
+
+How do I use wine in 32 or 64bit?
+
+WINEARCH=win32
+WINEARCH=win64
+
+Realworld Example:
+
+WINEARCH=win64 WINEPREFIX=/home/kamii/Games/WoW64 wine /home/kamii/Games/WoW64/drive_c/Program\ Files/World\ of\ Warcraft/Wow-64.exe
