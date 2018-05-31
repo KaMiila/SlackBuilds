@@ -26,7 +26,7 @@ BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
 DOWNLOAD="https://launchpad.net/nitroshare/0.3/0.3.4/+download/nitroshare-0.3.4.tar.gz"
 SHA1="aacd8c1ada9d9ae9dcc1aa518d9f494d20dd7b31"
-DEPENDENCIES="qt5.3"
+DEPENDENCIES="qt5.3 libinput"
 DOCS="LICENSE.txt README.md"
 
 ##
