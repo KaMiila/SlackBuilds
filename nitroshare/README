@@ -1,0 +1,37 @@
+REQUIRED DEPENDENCIES
+qt5
+libinput
+
+#################################
+### DEPENDENCY OF YOUR CHOICE ###
+#################################
+Choose one of the qt platforms plugins below:
+(You should already have libqxcb-glx-integration, libqxcb-egl-integration,
+wayland-xcomposite-egl, wayland-xcomposite-glx
+found in /usr/lib{arch}/qt5/plugins/{xcbglintegrations or
+wayland-graphics-integration-client}) but these libraries are missing libinput
+if you run ldd on them.  So make sure you have libinput as mentioned above.
+----------------------------------
+eglfs
+linuxfb
+minimal
+minimalegl
+offscreen
+wayland
+wayland-xcomposite-egl
+wayland-xcomposite-glx
+xcb
+----------------------------------
+NitroShare
+
+A cross-platform network file transfer application designed to make transferring any file to any device as painless as possible.
+
+Features
+Runs on Windows / Mac OS X / Linux
+Automatic discovery of devices on the local network
+Simple and intuitive user interface
+Incredibly fast transfer speeds
+Transfer entire directories
+Optional TLS encryption
+Local HTTP API
+Completely free and open-source
