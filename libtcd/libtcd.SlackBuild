@@ -3,7 +3,7 @@
 # Slackware build script for libtcd
 
 # KaMii <lacielacie@rocketmail.com>
-# All your wrongs are belong to me PirateLeft 2012-2013
+# All your wrongs are belong to me PirateLeft 2012, 2013, 2018
 #
 # I dont give a flying fuck what you do with this script.  Hack it, sell it, compile it,
 # delete it, fap to it.
@@ -24,10 +24,12 @@
 PRGNAM=libtcd
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="ftp://ftp.flaterco.com/xtide/libtcd-2.2.7.tar.bz2"
-MD5SUM="32e1a219c5dd196fe5a98eb2fcd60667"
+DOWNLOAD="ftp://ftp.flaterco.com/xtide/libtcd-2.2.7-r2.tar.bz2"
+MD5SUM="5dbdc144c0e00886252ef880fc765d2e"
 DEPENDENCIES=""
 DOCS="AUTHORS ChangeLog COPYING INSTALL NEWS README libtcd.html"
+TARVERSION=2.2.7-r2
+VERSION=2.2.7
 
 ##
 ## DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING ##
@@ -86,7 +88,6 @@ if [ "$MD5SUM" != "$SUM" ]; then echo "Checksum doesn't match, aborting"; exit 1
 	  echo "Source file verified."
 fi
 sleep 2
-VERSION=${VERSION:-$(echo $PRGNAM-*.tar.?z* | rev | cut -f 3- -d . | cut -f 1 -d - | rev)}
 
 # Prepare build location
 set -e
@@ -96,7 +97,7 @@ cd $TMP
 rm -rf $PRGNAM-$VERSION
 
 # Untar source
-tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2 || exit 1
+tar xvf $CWD/$PRGNAM-$TARVERSION.tar.bz2 || exit 1
 cd $PRGNAM-$VERSION || exit 1
 
 chown -R root:root .

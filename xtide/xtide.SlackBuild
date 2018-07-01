@@ -3,7 +3,7 @@
 # Slackware build script for xtide
 
 # KaMii <lacielacie@rocketmail.com>
-# All your wrongs are belong to me PirateLeft 2015
+# All your wrongs are belong to me PirateLeft 2015, 2018
 #
 # I dont give a flying fuck what you do with this script.  Hack it, sell it, compile it,
 # delete it, fap to it.
@@ -24,12 +24,12 @@
 PRGNAM=xtide
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="ftp://ftp.flaterco.com/xtide/xtide-2.14.tar.bz2"
-MD5SUM="0f50833e6f686eca16dcb33c1719cf6c"
+DOWNLOAD="ftp://ftp.flaterco.com/xtide/xtide-2.15.1.tar.bz2"
+MD5SUM="a0e6ed814bb583d826971ea4a6b8a164"
 DEPENDENCIES="libtcd"
 DOCS="AUTHORS ChangeLog COPYING INSTALL NEWS README"
-HARMON="ftp://ftp.flaterco.com/xtide/harmonics-dwf-20141224-free.tar.bz2"
-HARMONSUM="27adcccb2824ac45b072636b1ee1cdd5"
+HARMON="ftp://ftp.flaterco.com/xtide/harmonics-dwf-20180101-free.tar.bz2"
+HARMONSUM="d69d369943172a2254dbb2bc8ac76255"
 WVS="ftp://ftp.flaterco.com/xtide/wvs.tar.bz2"
 WVSSUM="56325c8105c7137ced73396f2f2d8221"
 
@@ -139,12 +139,12 @@ install -D -m0644 wvsfull.dat $PKG/usr/share/$PRGNAM/wvs/wvsfull.dat
 cd ..
 # Install config file
 mkdir -p $PKG/etc
-install -D -m0644 $CWD/xtide.conf $PKG/etc/xtide/xtide.conf
+install -D -m0644 $CWD/xtide.conf $PKG/etc/xtide.conf
 
 # Patch source so xtide.conf file is in its own directory: https://aur.archlinux.org/packages/xtide/
-patch -p1 < $CWD/xtide-2.14-aur.patch
+# patch -p1 < $CWD/xtide-2.14-aur.patch
 # Patch source with libXaw3dXft-1.6.2d fix
-patch -p1 < $CWD/xtide-2.14-Demailly.patch
+# patch -p1 < $CWD/xtide-2.14-Demailly.patch
 
 chown -R root:root .
 chmod -R u+w,go+r-w,a+X-s .
