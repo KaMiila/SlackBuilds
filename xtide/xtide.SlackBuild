@@ -24,12 +24,12 @@
 PRGNAM=xtide
 BUILD=${BUILD:-1}
 TAG=${TAG:-_KaMii}
-DOWNLOAD="ftp://ftp.flaterco.com/xtide/xtide-2.15.1.tar.bz2"
-MD5SUM="a0e6ed814bb583d826971ea4a6b8a164"
+DOWNLOAD="ftp://ftp.flaterco.com/xtide/xtide-2.15.2.tar.bz2"
+MD5SUM="3d4bd4ef4152809deff9a3b48330fe9d"
 DEPENDENCIES="libtcd"
 DOCS="AUTHORS ChangeLog COPYING INSTALL NEWS README"
-HARMON="ftp://ftp.flaterco.com/xtide/harmonics-dwf-20180101-free.tar.bz2"
-HARMONSUM="d69d369943172a2254dbb2bc8ac76255"
+HARMON="https://flaterco.com/files/xtide/harmonics-dwf-20191229-free.tar.xz"
+HARMONSUM="dd0229543b5a02bf45a317de12099afc"
 WVS="ftp://ftp.flaterco.com/xtide/wvs.tar.bz2"
 WVSSUM="56325c8105c7137ced73396f2f2d8221"
 
@@ -68,7 +68,7 @@ case "$ARCH" in
   x86_64)    SLKCFLAGS="-O2 -fPIC"
              SLKLDFLAGS="-L/usr/lib64"; LIBDIRSUFFIX="64"
              ;;
-  armv7hl)   SLKCFLAGS="-O2 -march=armv7-a -mfpu=vfpv3-d16"
+  armv7hl)   SLKCFLAGS="-O2 -march=armv7-a -mfpu=vfpv3-d16"d69d369943172a2254dbb2bc8ac76255
              SLKLDFLAGS=""; LIBDIRSUFFIX=""
              ;;
   armv6hl)   SLKCFLAGS="-O2 -march=armv6 -mfpu=vfp -mfloat-abi=hard"
@@ -117,7 +117,7 @@ rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2 || exit 1
 cd $PRGNAM-$VERSION || exit 1
 # Untar harmonics file
-HARVERS=${HARVERS:-$(echo $HARBALL | rev | cut -c 14- | rev)}
+HARVERS=${HARVERS:-$(echo $HARBALL | rev | cut -c 13- | rev)}
 tar xvf $CWD/$HARBALL || exit 1
 # Install harmonics file
 cd $HARVERS || exit 1
@@ -193,4 +193,4 @@ cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 # Package it up
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$PKGARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
