@@ -1,8 +1,8 @@
-** This script will auto download all source files and check them with an MD5SUM which I have provided since the developers do not provide an MD5SUM.**
+**This script will auto download all source files and check them with an MD5SUM which I have provided since the developers do not provide an MD5SUM.**
 
 **DANGER: NOT FOR NAVIGATION**
 
-** DO NOT RELY ON THIS DATA FILE FOR DECISIONS THAT CAN RESULT IN HARM TO ANYONE OR ANYTHING.**
+**DO NOT RELY ON THIS DATA FILE FOR DECISIONS THAT CAN RESULT IN HARM TO ANYONE OR ANYTHING.**
 
 
 The above warning does not come from me, it comes from the developers.  Please heed their warnings, and be safe, for the NSA is always watching you.
@@ -27,4 +27,4 @@ This script will also automatically install World Vector Shoreline data.  These 
 [libtcd][libtcd] - found on my gitrepo https://github.com/KaMiila
 
 [flaterco]: http://www.flaterco.com/xtide/locations.html
-[libcd]: https://github.com/KaMiila/SlackBuilds/libtcd
+[libtcd]: https://github.com/KaMiila/SlackBuilds/libtcd
